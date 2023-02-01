@@ -11,6 +11,8 @@ import { RetoureComponent } from './components/retoure/retoure.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { RetoureFormComponent } from './components/retoure-form/retoure-form.component';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +26,8 @@ import { RetoureFormComponent } from './components/retoure-form/retoure-form.com
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
