@@ -1,1 +1,116 @@
-<p>retoure works!</p>
+<div class="mx-8">
+    <div cdkDropListGroup class="grid grid-cols-4 gap-8">
+    
+        <!-- Retoure angemeldet -->
+        <div class="step-container">
+            <h2>Retoure angemeldet</h2>
+            <div
+                cdkDropList
+                [cdkDropListData]="sampleData"
+                class="example-list flex flex-col gap-3"
+                (cdkDropListDropped)="drop($event)"
+                >
+                <div *ngFor="let data of sampleData" class="collapse collapse-arrow bg-base-300 rounded-box" cdkDrag>
+                    <input type="checkbox" />
+                    <div class="collapse-title text-xl font-medium">
+                        {{ data.name }}
+                    </div>
+                    <div class="collapse-content"> 
+                        <p>{{ data.orderNo }}</p>
+                        <p>{{ data.returnNo }}</p>
+                        <p>{{ data.paymentDueDate | date:'longDate'}}</p>
+                        <p>{{ data.returnDueDate | date:'longDate'}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Retoure abgeschickt -->
+        <div class="step-container">
+            <h2>Retoure abgeschickt</h2>
+            <div
+                cdkDropList
+                [cdkDropListData]="secondStep"
+                class="example-list flex flex-col gap-3"
+                (cdkDropListDropped)="drop($event)"
+                >
+                <div *ngFor="let data of secondStep" class="collapse collapse-arrow bg-base-300 rounded-box" cdkDrag>
+                    <input type="checkbox" />
+                    <div class="collapse-title text-xl font-medium">
+                        {{ data.name }}
+                    </div>
+                    <div class="collapse-content"> 
+                        <p>{{ data.orderNo }}</p>
+                        <p>{{ data.returnNo }}</p>
+                        <p>{{ data.paymentDueDate | date:'longDate'}}</p>
+                        <p>{{ data.returnDueDate | date:'longDate'}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Zahlungsfrist beachten -->
+        <div class="step-container">
+            <h2>Zahlungsfrist beachten</h2>
+            <div
+                cdkDropList
+                [cdkDropListData]="thirdStep"
+                class="example-list flex flex-col gap-3"
+                (cdkDropListDropped)="drop($event)"
+                >
+                <div *ngFor="let data of thirdStep" class="collapse collapse-arrow bg-base-300 rounded-box" cdkDrag>
+                    <input type="checkbox" />
+                    <div class="collapse-title text-xl font-medium">
+                        {{ data.name }}
+                    </div>
+                    <div class="collapse-content"> 
+                        <p>{{ data.orderNo }}</p>
+                        <p>{{ data.returnNo }}</p>
+                        <p>{{ data.paymentDueDate | date:'longDate'}}</p>
+                        <p>{{ data.returnDueDate | date:'longDate'}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Retoure abgeschlossen -->
+        <div class="step-container">
+            <h2>Retoure abgeschlossen</h2>
+            <div
+                cdkDropList
+                [cdkDropListData]="fourthStep"
+                class="example-list flex flex-col gap-3"
+                (cdkDropListDropped)="drop($event)"
+                >
+                <div *ngFor="let data of fourthStep" class="collapse collapse-arrow bg-base-300 rounded-box" cdkDrag>
+                    <input type="checkbox" />
+                    <div class="collapse-title text-xl font-medium">
+                        {{ data.name }}
+                    </div>
+                    <div class="collapse-content"> 
+                        <p>{{ data.orderNo }}</p>
+                        <p>{{ data.returnNo }}</p>
+                        <p>{{ data.paymentDueDate | date:'longDate'}}</p>
+                        <p>{{ data.returnDueDate | date:'longDate'}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</div>
+
+  
+
+<!-- <div *ngFor="let data of sampleData" class="collapse collapse-arrow bg-base-300 rounded-box mb-4">
+    <input type="checkbox" />
+    <div class="collapse-title text-xl font-medium">
+      {{ data.name }}
+    </div>
+    <div class="collapse-content"> 
+      <p>{{ data.orderNo }}</p>
+      <p>{{ data.returnNo }}</p>
+      <p>{{ data.paymentDueDate | date:'longDate'}}</p>
+      <p>{{ data.returnDueDate | date:'longDate'}}</p>
+    </div>
+  </div> -->
