@@ -12,6 +12,8 @@ import { DialogComponent } from './components/dialog/dialog.component';
 import { RetoureFormComponent } from './components/retoure-form/retoure-form.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     StepsComponent,
     RetoureComponent,
     DialogComponent,
-    RetoureFormComponent
+    RetoureFormComponent,
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
