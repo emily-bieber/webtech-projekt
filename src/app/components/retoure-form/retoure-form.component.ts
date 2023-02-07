@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./retoure-form.component.css']
 })
 export class RetoureFormComponent implements OnInit {
+openDialog() {
+throw new Error('Method not implemented.');
+}
 
   constructor() { }
 

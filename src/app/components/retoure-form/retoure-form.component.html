@@ -1,1 +1,38 @@
-<p>retoure-form works!</p>
+
+   <div style="display: flex">
+        <button class="bttn" style="font-size: 23px" (click)="openDialog()">+</button>
+    </div>
+
+
+
+  
+  <div>
+    <mat-card class="form-matcard">
+             
+          <input type="text" placeholder="Name" class="input input-bordered input-md w-full max-w-xs" />
+            <mat-form-field class="example-full-width">
+            <textarea placeholder="Schreibe deine Notizen" class="textarea textarea-bordered textarea-lg w-full max-w-xs" ></textarea>
+            </mat-form-field>
+
+
+            
+            
+            <div class="flex items-center justify-center">
+              <div class="datepicker relative form-floating mb-3 xl:w-96">
+                <input type="text"
+                  class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                  placeholder="Select a date" />
+                <i class="fas fa-calendar datepicker-toggle-icon"></i>
+              </div>
+            </div>
+    
+        </mat-card>
+
+       
+      
+  </div>
+    
+      
+
+
+
