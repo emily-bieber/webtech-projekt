@@ -1,0 +1,24 @@
+<div class="hero min-h-screen" style="background-image: url(../../../assets/images/background-img.jpg);">
+    <div class="hero-content w-3/12 text-center">
+        <div class="card bg-base-100 shadow-xl w-full">
+            <div class="card-body flex justify-center">
+                <div class="my-8">
+                    <p class="text-6xl">SIGN UP</p>
+                </div>
+                <div class="login-form">
+                    <form class="flex flex-col gap-4 mb-5" [formGroup]="registerForm">
+                        <input type="text" placeholder="Username" class="input input-bordered w-full" formControlName="username" />
+                        <!-- <mat-error *ngIf="username.touched && username.invalid" class="error">Please type in your username</mat-error> -->
+                        <input type="text" placeholder="Email" class="input input-bordered w-full" formControlName="email" />
+                        <!-- <mat-error *ngIf="email.touched && email.invalid" class="error">Please type in your email</mat-error> -->
+                        <input type="password" placeholder="Password" class="input input-bordered w-full" formControlName="password" />
+                        <!-- <mat-error *ngIf="password.touched && password.invalid" class="error">{{ getErrorMessage() }}</mat-error> -->
+                    </form>
+                </div>
+            <div class="card-actions justify-end">
+                <button class="btn px-8 mt-5" click="onSubmit()">Sign Up</button>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

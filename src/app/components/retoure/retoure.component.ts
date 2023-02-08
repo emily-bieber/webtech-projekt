@@ -1,13 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
-
-export interface Retoure {
-  name: string;
-  orderNo: string;
-  returnNo: string;
-  paymentDueDate: Date;
-  returnDueDate: Date;
-}
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { Retoure } from '../../models/retoure';
 
 @Component({
   selector: 'app-retoure',
@@ -23,6 +16,7 @@ export class RetoureComponent implements OnInit {
       returnNo: 'RN11111',
       paymentDueDate: new Date('January 20, 2023 00:00:00'),
       returnDueDate: new Date('January 10, 2023 00:00:00'),
+      notes: '',
     },
     {
       name: 'Retoure 2',
@@ -30,6 +24,7 @@ export class RetoureComponent implements OnInit {
       returnNo: 'RN22222',
       paymentDueDate: new Date('February 10, 2023 00:00:00'),
       returnDueDate: new Date('February 20, 2023 00:00:00'),
+      notes: '',
     },
     {
       name: 'Retoure 3',
@@ -37,6 +32,7 @@ export class RetoureComponent implements OnInit {
       returnNo: 'RN33333',
       paymentDueDate: new Date('March 10, 2023 00:00:00'),
       returnDueDate: new Date('March 20, 2023 00:00:00'),
+      notes: '',
     },
     {
       name: 'Retoure 4',
@@ -44,6 +40,7 @@ export class RetoureComponent implements OnInit {
       returnNo: 'RN44444',
       paymentDueDate: new Date('April 20, 2023 00:00:00'),
       returnDueDate: new Date('April 10, 2023 00:00:00'),
+      notes: '',
     },
   ]
 

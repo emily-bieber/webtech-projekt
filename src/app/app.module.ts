@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { ReactiveFormsModule } from '@angular/forms';
-import {DragDropModule} from '@angular/cdk/drag-drop';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +12,8 @@ import { ImpressumComponent } from './components/impressum/impressum.component';
 import { RetoureComponent } from './components/retoure/retoure.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { RetoureFormComponent } from './components/retoure-form/retoure-form.component';
+import { RegistrationComponent } from './components/registration/registration.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,13 +23,15 @@ import { RetoureFormComponent } from './components/retoure-form/retoure-form.com
     ImpressumComponent,
     RetoureComponent,
     DialogComponent,
-    RetoureFormComponent
+    RetoureFormComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     DragDropModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
