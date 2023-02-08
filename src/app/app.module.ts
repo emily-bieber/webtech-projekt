@@ -22,6 +22,9 @@ import{MatInputModule} from "@angular/material/input";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -47,7 +50,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatProgressBarModule,
     MatDatepickerModule,
     MatInputModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    BrowserAnimationsModule,
+    MatNativeDateModule
     
   ],
   providers: [],
