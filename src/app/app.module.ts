@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { LoginComponent } from './components/login/login.component';
 import { ImpressumComponent } from './components/impressum/impressum.component';
-import { StepsComponent } from './components/steps/steps.component';
 import { RetoureComponent } from './components/retoure/retoure.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { RetoureFormComponent } from './components/retoure-form/retoure-form.component';
@@ -20,10 +19,7 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import{MatInputModule} from "@angular/material/input";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
-
-import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
@@ -32,7 +28,6 @@ import { MatNativeDateModule } from '@angular/material/core';
     LandingPageComponent,
     LoginComponent,
     ImpressumComponent,
-    StepsComponent,
     RetoureComponent,
     DialogComponent,
     RetoureFormComponent
