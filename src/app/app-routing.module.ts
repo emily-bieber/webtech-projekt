@@ -4,6 +4,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
 import { ImpressumComponent } from './components/impressum/impressum.component';
 import { LoginComponent } from './components/login/login.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { RetoureFormComponent } from './components/retoure-form/retoure-form.component';
 
 const routes: Routes = [
   {path:'dialog',
@@ -17,6 +18,9 @@ const routes: Routes = [
 
   {path:'impressum',
   component: ImpressumComponent},
+
+  {path:'form',
+  component: RetoureFormComponent},
 ];
 
 @NgModule({
