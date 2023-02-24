@@ -30,5 +30,22 @@ router.post('/register', async(req, res) => {
     }
 });
 
+// post username and password - login
+router.post('/login', async(req, res) => {
+    const existingUsername = await User.findOne( {username: req.body.username});
+    if(existingUsername) {
+        bcrypt.compare(req.body.password, existingUsername.password).then((result) => {
+            if(result) {
+                res.status(201).json({ message: 'logged in' });
+            } else {
+                res.status(204).send(); // wrong password
+            }
+        })
+        .catch( (err) => res.status(400).json({ error: 'something went wrong' })) // never happens
+    } else {
+        res.status(400).json({ error: 'username does not exist' });
+    }
+});
+
 
 module.exports = router;

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { Retoure } from '../../models/retoure';
+import { Retoure } from '../../shared/models/retoure';
 
 @Component({
   selector: 'app-retoure',

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'app/shared/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,35 +9,24 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  // loginForm: FormGroup = new FormGroup({
-  //   email: new FormControl('', [Validators.required]),
-  //   password: new FormControl('', [Validators.required])
-  // });
+  loginForm: FormGroup = new FormGroup({
+    username: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required])
+  });
 
-  username = new FormControl('', [Validators.required]);
-  password = new FormControl('', [Validators.required, Validators.minLength(8)]);
-
-  constructor() {
+  constructor(private auth: AuthService) {
     // this.loginForm.valueChanges.subscribe(console.log)
    }
 
   ngOnInit(): void {}
 
-  // getErrorMessage() {
-  //   if (this.username.hasError('required')) {
-  //     return 'You must enter an email';
+  // submit() {
+  //   const values = this.loginForm.value;
+  //   const user = {
+  //     username = 
+  //     password
   //   }
-  //   if (this.password.hasError('required')) {
-  //     return 'You must enter a password'
-  //   }
-  //   if(this.password.hasError('minlength')) {
-  //     return 'Password must be at least 8 ... long'
-  //   }
-  //   return '';
+  //   this.auth.loginUser().subscribe()
   // }
-
-  submit() {
-    console.log(this.username.value + ' ' + this.password.value);
-  }
 
 }
