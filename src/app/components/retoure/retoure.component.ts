@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import { RetoureFormComponent } from '../retoure-form/retoure-form.component';
 
 export interface Retoure {
   name: string;
@@ -51,7 +53,7 @@ export class RetoureComponent implements OnInit {
   thirdStep: Retoure[] = []
   fourthStep: Retoure[] = []
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -69,4 +71,10 @@ export class RetoureComponent implements OnInit {
     }
   }
 
+  openForm(): void {
+    this.dialog.open(RetoureFormComponent, {
+      width: '50%',
+      height: 'auto'
+    });
+  }
 }

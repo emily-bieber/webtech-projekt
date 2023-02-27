@@ -2,35 +2,36 @@
    <!-- <div style="display: flex">
         <button class="bttn" style="font-size: 23px" (click)="openDialog()">+</button>
     </div> -->
-  <div class="main-div">
-<mat-card >
-    <form class="example-form">
+
+<h2 mat-dialog-title>Füge eine neue Retoure hinzu:</h2>
+<mat-dialog-content>
+    <form class="example-form" [formGroup]="retoureForm">
       <mat-form-field class="example-full-width">
         <mat-label>Name des Unternehmens</mat-label>
-        <input matInput placeholder="Unternehmen">
+        <input matInput formControlName="name" placeholder="Unternehmen">
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
         <mat-label>Bestellnummer</mat-label>
-        <input matInput placeholder="z.B 03913910">
+        <input matInput formControlName="orderNo" placeholder="z.B 03913910">
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
         <mat-label>Rücksendungsnummer</mat-label>
-        <input matInput placeholder="z.B 03913910">
+        <input matInput formControlName="returnNo" placeholder="z.B 03913910">
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>Zahlungsfrist</mat-label>
-        <input matInput [matDatepicker]="picker">
+        <input matInput formControlName="paymentDueDate" [matDatepicker]="paymentPicker">
         <mat-hint>MM/DD/YYYY</mat-hint>
-        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
+        <mat-datepicker-toggle matIconSuffix [for]="paymentPicker"></mat-datepicker-toggle>
+        <mat-datepicker #paymentPicker></mat-datepicker>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>Rückgabefrist</mat-label>
-        <input matInput [matDatepicker]="picker">
+        <input matInput formControlName="returnDueDate" [matDatepicker]="picker">
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
@@ -39,14 +40,14 @@
       
       <mat-form-field class="example-full-width">
         <mat-label>Hinterlasse eine Notiz</mat-label>
-        <textarea matInput placeholder=""></textarea>
+        <textarea matInput formControlName="notes" placeholder=""></textarea>
       </mat-form-field>
     </form>
-
-    <button class="btn btn-sm">Abbruch</button>
-    <button class="btn btn-sm">Speichern</button>
-
-  </mat-card>
+  </mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-dialog-close class="btn btn-sm btn-outline btn-primary">Abbruch</button>
+    <button mat-dialog-close class="btn btn-sm btn-primary" [disabled]="retoureForm.invalid" (click)="closeAndSave()">Speichern</button>
+  </mat-dialog-actions>
 
     
       

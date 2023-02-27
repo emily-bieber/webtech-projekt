@@ -8,13 +8,13 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  // loginForm: FormGroup = new FormGroup({
-  //   email: new FormControl('', [Validators.required]),
-  //   password: new FormControl('', [Validators.required])
-  // });
+  loginForm: FormGroup = new FormGroup({
+    email: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required])
+  });
 
-  username = new FormControl('', [Validators.required]);
-  password = new FormControl('', [Validators.required, Validators.minLength(8)]);
+  // username = new FormControl('', [Validators.required]);
+  // password = new FormControl('', [Validators.required, Validators.minLength(8)]);
 
   constructor() {
     // this.loginForm.valueChanges.subscribe(console.log)
@@ -35,8 +35,8 @@ export class LoginComponent implements OnInit {
   //   return '';
   // }
 
-  submit() {
-    console.log(this.username.value + ' ' + this.password.value);
-  }
+  // submit() {
+  //   console.log(this.username.value + ' ' + this.password.value);
+  // }
 
 }
