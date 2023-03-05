@@ -47,5 +47,30 @@ router.post('/login', async(req, res) => {
     }
 });
 
+// get one user via username
+router.get('/:name', async(req, res) => {
+    const user = await User.findOne({ username: req.params.name });
+    if(user) {
+        res.send(user);
+    } else {
+        res.status(404);
+        res.send({
+            error: "User does not exist!"
+        });
+    }
+})
+
+
+// delete one user via id
+// router.delete('/:id', async(req, res) => {
+//     try {
+//         await User.deleteOne({ _id: req.params.id })
+//         res.status(204).send()
+//     } catch {
+//         res.status(404)
+//         res.send({ error: "User does not exist!" })
+//     }
+// });
+
 
 module.exports = router;
