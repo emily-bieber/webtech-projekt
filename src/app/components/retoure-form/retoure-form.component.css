@@ -1,0 +1,22 @@
+.example-form {
+  display: flex;
+  flex-direction: column;
+} 
+
+
+
+.mat-card {
+width: 40%;
+background-color: #edf1f6;
+padding: 30px;
+
+}
+
+.main-div{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+

@@ -1,1 +1,55 @@
-<p>retoure-form works!</p>
+
+   <!-- <div style="display: flex">
+        <button class="bttn" style="font-size: 23px" (click)="openDialog()">+</button>
+    </div> -->
+  <div class="main-div">
+<mat-card >
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Name des Unternehmens</mat-label>
+        <input matInput placeholder="Unternehmen">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Bestellnummer</mat-label>
+        <input matInput placeholder="z.B 03913910">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Rücksendungsnummer</mat-label>
+        <input matInput placeholder="z.B 03913910">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Zahlungsfrist</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Rückgabefrist</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field> 
+
+      
+      <mat-form-field class="example-full-width">
+        <mat-label>Hinterlasse eine Notiz</mat-label>
+        <textarea matInput placeholder=""></textarea>
+      </mat-form-field>
+    </form>
+
+    <button class="btn btn-sm">Abbruch</button>
+    <button class="btn btn-sm">Speichern</button>
+
+  </mat-card>
+
+    
+      
+
+
+
