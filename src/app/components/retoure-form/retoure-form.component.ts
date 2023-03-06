@@ -24,7 +24,7 @@ export class RetoureFormComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  closeAndSave() {
+  closeAndSave(): void {
     const newRetoure: Retoure = {
       _id: '',
       name: this.retoureForm.value.name,

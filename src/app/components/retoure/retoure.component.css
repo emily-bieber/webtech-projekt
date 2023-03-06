@@ -5,11 +5,14 @@
     display: inline-block;
     vertical-align: top;
   } */
-  
+ .mat-card{
+  background-color: rgb(254, 250, 255);
+  border-radius:1rem;
+ }
   .example-list {
     min-height: 400px;
     border-radius: 1rem;
-    background-color: beige;
+    background-color: rgb(237, 223, 248);
     padding: 20px;
     overflow: hidden;
   }

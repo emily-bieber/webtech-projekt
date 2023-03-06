@@ -42,9 +42,10 @@
         <mat-label>Hinterlasse eine Notiz</mat-label>
         <textarea matInput formControlName="notes" placeholder=""></textarea>
       </mat-form-field>
-    </form>
+    </form> 
   </mat-dialog-content>
 <mat-dialog-actions align="end">
+  <label mat-dialog-close class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
     <button mat-dialog-close class="btn btn-sm btn-outline btn-primary">Abbruch</button>
     <button mat-dialog-close class="btn btn-sm btn-primary" [disabled]="retoureForm.invalid" (click)="closeAndSave()">Speichern</button>
   </mat-dialog-actions>
