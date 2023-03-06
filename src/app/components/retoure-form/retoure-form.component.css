@@ -3,20 +3,18 @@
   flex-direction: column;
 } 
 
-
-
-.mat-card {
-width: 40%;
+.mat-dialog-content {
+width: 100%;
 background-color: #edf1f6;
 padding: 30px;
+margin: 0px;
 
 }
 
-.main-div{
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.btn {
+  margin: 10px;
 }
 
-
+::ng-deep .mat-dialog-container {
+  border-radius: 20px !important;
+}

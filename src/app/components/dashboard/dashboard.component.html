@@ -1,8 +1,9 @@
 <h1>HELLO {{ loggedInUser.username }}</h1>
+<button style="margin: 50px;" (click)="openForm()">+</button>
 
 <div class="mx-8">
     <div cdkDropListGroup class="grid grid-cols-4 gap-8">
-    
+    <mat-card>
         <!-- Retoure angemeldet -->
         <div class="step-container">
             <h2>Retoure angemeldet</h2>
@@ -12,7 +13,7 @@
                 class="example-list flex flex-col gap-3"
                 (cdkDropListDropped)="drop($event)"
                 >
-                <div *ngFor="let data of sampleData" class="collapse collapse-arrow bg-base-300 rounded-box" cdkDrag>
+                <div *ngFor="let data of sampleData" class="collapse collapse-arrow bg-purple-300 rounded-box" cdkDrag>
                     <input type="checkbox" />
                     <div class="collapse-title text-xl font-medium">
                         {{ data.name }}
@@ -26,7 +27,10 @@
                 </div>
             </div>
         </div>
+    </mat-card>
     
+
+    <mat-card>    
         <!-- Retoure abgeschickt -->
         <div class="step-container">
             <h2>Retoure abgeschickt</h2>
@@ -36,7 +40,7 @@
                 class="example-list flex flex-col gap-3"
                 (cdkDropListDropped)="drop($event)"
                 >
-                <div *ngFor="let data of secondStep" class="collapse collapse-arrow bg-base-300 rounded-box" cdkDrag>
+                <div *ngFor="let data of secondStep" class="collapse collapse-arrow bg-purple-300 rounded-box" cdkDrag>
                     <input type="checkbox" />
                     <div class="collapse-title text-xl font-medium">
                         {{ data.name }}
@@ -50,7 +54,10 @@
                 </div>
             </div>
         </div>
+    </mat-card>
+
     
+    <mat-card>
         <!-- Zahlungsfrist beachten -->
         <div class="step-container">
             <h2>Zahlungsfrist beachten</h2>
@@ -60,7 +67,7 @@
                 class="example-list flex flex-col gap-3"
                 (cdkDropListDropped)="drop($event)"
                 >
-                <div *ngFor="let data of thirdStep" class="collapse collapse-arrow bg-base-300 rounded-box" cdkDrag>
+                <div *ngFor="let data of thirdStep" class="collapse collapse-arrow bg-purple-300 rounded-box" cdkDrag>
                     <input type="checkbox" />
                     <div class="collapse-title text-xl font-medium">
                         {{ data.name }}
@@ -74,7 +81,9 @@
                 </div>
             </div>
         </div>
-    
+    </mat-card>
+
+    <mat-card>
         <!-- Retoure abgeschlossen -->
         <div class="step-container">
             <h2>Retoure abgeschlossen</h2>
@@ -84,7 +93,7 @@
                 class="example-list flex flex-col gap-3"
                 (cdkDropListDropped)="drop($event)"
                 >
-                <div *ngFor="let data of fourthStep" class="collapse collapse-arrow bg-base-300 rounded-box" cdkDrag>
+                <div *ngFor="let data of fourthStep" class="collapse collapse-arrow bg-purple-300 rounded-box" cdkDrag>
                     <input type="checkbox" />
                     <div class="collapse-title text-xl font-medium">
                         {{ data.name }}
@@ -98,7 +107,7 @@
                 </div>
             </div>
         </div>
-    
+    </mat-card>
     </div>
 </div>
 
