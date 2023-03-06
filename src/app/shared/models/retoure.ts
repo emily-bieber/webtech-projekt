@@ -6,4 +6,6 @@ export interface Retoure {
     paymentDueDate: Date;
     returnDueDate: Date;
     notes: string;
+    userid: string;
+    status: string;
   }
