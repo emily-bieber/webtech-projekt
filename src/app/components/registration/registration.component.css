@@ -1,0 +1,16 @@
+input.ng-touched.ng-invalid {
+    border: solid 2px red;
+}
+
+input.ng-touched.ng-valid {
+    border: solid 2px green;
+}
+
+.image {
+    object-fit: cover;
+}
+
+
+/* .error {
+    
+} */

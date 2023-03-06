@@ -1,5 +1,6 @@
 const express = require('express');
-const routes = require('./routes');
+const cors = require('cors');
+const userRoutes = require('./routes/users');
 const mongoose = require('mongoose');
 require('dotenv').config();
 
@@ -7,7 +8,9 @@ const app = express();
 const PORT = 3000;
 
 app.use(express.json());
-app.use('/', routes);
+// enable cors for all requests
+app.use(cors());
+app.use('/users', userRoutes);
 
 // connect to mongoDB
 mongoose.connect(process.env.DB_CONNECTION, { dbName: process.env.DATABASE });
