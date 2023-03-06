@@ -3,6 +3,8 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 import { Retoure } from '../../shared/models/retoure';
 import { AuthService } from 'app/shared/services/auth.service';
 import { User } from 'app/shared/models/user';
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import { RetoureFormComponent } from '../retoure-form/retoure-form.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,6 +15,7 @@ export class DashboardComponent implements OnInit {
 
   sampleData: Retoure[] = [
     {
+      _id: '',
       name: 'Retoure 1',
       orderNo: 'ON11111',
       returnNo: 'RN11111',
@@ -21,6 +24,7 @@ export class DashboardComponent implements OnInit {
       notes: '',
     },
     {
+      _id: '',
       name: 'Retoure 2',
       orderNo: 'ON22222',
       returnNo: 'RN22222',
@@ -29,6 +33,7 @@ export class DashboardComponent implements OnInit {
       notes: '',
     },
     {
+      _id: '',
       name: 'Retoure 3',
       orderNo: 'ON33333',
       returnNo: 'RN33333',
@@ -37,6 +42,7 @@ export class DashboardComponent implements OnInit {
       notes: '',
     },
     {
+      _id: '',
       name: 'Retoure 4',
       orderNo: 'ON44444',
       returnNo: 'RN44444',
@@ -52,7 +58,7 @@ export class DashboardComponent implements OnInit {
 
   loggedInUser: User = this.auth.user;
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -70,4 +76,10 @@ export class DashboardComponent implements OnInit {
     }
   }
 
+  openForm(): void {
+    this.dialog.open(RetoureFormComponent, {
+      width: '50%',
+      height: 'auto'
+    });
+  }
 }
