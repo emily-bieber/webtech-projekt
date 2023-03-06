@@ -7,12 +7,13 @@ import { AppComponent } from './app.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { LoginComponent } from './components/login/login.component';
 import { ImpressumComponent } from './components/impressum/impressum.component';
-import { RetoureComponent } from './components/retoure/retoure.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { RetoureFormComponent } from './components/retoure-form/retoure-form.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { HttpClientModule } from '@angular/common/http';
-import { MatIconModule } from '@angular/material/icon'
+import { MatIconModule } from '@angular/material/icon';
+import { RegistrationSuccessComponent } from './components/registration-success/registration-success.component'
 
 @NgModule({
   declarations: [
@@ -20,10 +21,11 @@ import { MatIconModule } from '@angular/material/icon'
     LandingPageComponent,
     LoginComponent,
     ImpressumComponent,
-    RetoureComponent,
+    DashboardComponent,
     DialogComponent,
     RetoureFormComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    RegistrationSuccessComponent
   ],
   imports: [
     BrowserModule,

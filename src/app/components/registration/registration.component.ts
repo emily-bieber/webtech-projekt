@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from '../../shared/models/user';
 import { AuthService } from 'app/shared/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,7 @@ export class RegistrationComponent implements OnInit {
   hide2 = true;
   user!: User;
 
-  constructor( private auth: AuthService ) {}
+  constructor( private auth: AuthService, private router: Router ) {}
 
   ngOnInit(): void {}
 
@@ -36,7 +37,9 @@ export class RegistrationComponent implements OnInit {
     this.auth.registerUser(this.user).subscribe({
         next: (response) => console.log('response', response),
         error: (err) => console.log(err),
-        complete: () => console.log('register completed')
+        complete: () => {
+          console.log('register completed')
+          this.router.navigate(['/register/successful'])}
     });
   }
 

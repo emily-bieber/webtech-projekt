@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Retoure } from '../../shared/models/retoure';
+import { AuthService } from 'app/shared/services/auth.service';
+import { User } from 'app/shared/models/user';
 
 @Component({
-  selector: 'app-retoure',
-  templateUrl: './retoure.component.html',
-  styleUrls: ['./retoure.component.css']
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css']
 })
-export class RetoureComponent implements OnInit {
+export class DashboardComponent implements OnInit {
 
   sampleData: Retoure[] = [
     {
@@ -48,7 +50,9 @@ export class RetoureComponent implements OnInit {
   thirdStep: Retoure[] = []
   fourthStep: Retoure[] = []
 
-  constructor() { }
+  loggedInUser: User = this.auth.user;
+
+  constructor(private auth: AuthService) { }
 
   ngOnInit(): void {
   }
