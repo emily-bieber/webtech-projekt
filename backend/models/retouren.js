@@ -6,7 +6,9 @@ const schema = new mongoose.Schema({
     ReturnNo: String,
     paymentDueDate: Date,
     returnDueDate: Date,
-    notes: String
+    notes: String,
+    status: String,
+    userid: String
 });
 
 module.exports = mongoose.model('Retoure', schema);
