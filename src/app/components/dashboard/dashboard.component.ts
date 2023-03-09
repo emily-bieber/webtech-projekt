@@ -22,6 +22,9 @@ export class DashboardComponent implements OnInit {
       paymentDueDate: new Date('January 20, 2023 00:00:00'),
       returnDueDate: new Date('January 10, 2023 00:00:00'),
       notes: '',
+      userid: '',
+      status: ''
+
     },
     {
       _id: '',
@@ -31,6 +34,8 @@ export class DashboardComponent implements OnInit {
       paymentDueDate: new Date('February 10, 2023 00:00:00'),
       returnDueDate: new Date('February 20, 2023 00:00:00'),
       notes: '',
+      userid: '',
+      status: ''
     },
     {
       _id: '',
@@ -40,6 +45,8 @@ export class DashboardComponent implements OnInit {
       paymentDueDate: new Date('March 10, 2023 00:00:00'),
       returnDueDate: new Date('March 20, 2023 00:00:00'),
       notes: '',
+      userid: '',
+      status: ''
     },
     {
       _id: '',
@@ -49,6 +56,8 @@ export class DashboardComponent implements OnInit {
       paymentDueDate: new Date('April 20, 2023 00:00:00'),
       returnDueDate: new Date('April 10, 2023 00:00:00'),
       notes: '',
+      userid: '',
+      status: ''
     },
   ]
 

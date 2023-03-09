@@ -33,6 +33,9 @@ export class RetoureFormComponent implements OnInit {
       paymentDueDate: this.retoureForm.value.paymentDueDate,
       returnDueDate: this.retoureForm.value.returnDueDate,
       notes: this.retoureForm.value.notes,
+      //new ---------------
+      userid: '',
+      status: ''
     }
     console.log(newRetoure);
     console.log('Retoure gespeichert');
