@@ -6,6 +6,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RetoureFormComponent } from './components/retoure-form/retoure-form.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { RegistrationSuccessComponent } from './components/registration-success/registration-success.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
+
 
 const routes: Routes = [
   {
@@ -32,6 +34,10 @@ const routes: Routes = [
 
   { path: 'form',
     component: RetoureFormComponent
+  },
+
+  { path: 'carousel',
+    component: CarouselComponent
   }
 ];
 

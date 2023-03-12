@@ -23,7 +23,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatNativeDateModule } from '@angular/material/core';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { HttpClientModule } from '@angular/common/http';
-import { RegistrationSuccessComponent } from './components/registration-success/registration-success.component'
+import { RegistrationSuccessComponent } from './components/registration-success/registration-success.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
+
+
 
 @NgModule({
   declarations: [
@@ -35,7 +38,8 @@ import { RegistrationSuccessComponent } from './components/registration-success/
     DialogComponent,
     RetoureFormComponent,
     RegistrationComponent,
-    RegistrationSuccessComponent
+    RegistrationSuccessComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
@@ -55,9 +59,10 @@ import { RegistrationSuccessComponent } from './components/registration-success/
     BrowserAnimationsModule,
     MatNativeDateModule,
     HttpClientModule,
-    MatIconModule
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
