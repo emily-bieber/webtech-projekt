@@ -37,6 +37,20 @@ router.get('/user/:userid', async(req, res) => {
     }
 })
 
+// GET ALL FOR ONE USER AND ONE STATUS
+router.get('/user/:userid/:status', async(req, res) => {
+    const retoure = await Retoure.find({ userid: req.params.userid, status: req.params.status });
+    console.log(req.params);
+    if(retoure) {
+        res.send(retoure);
+    } else {
+        res.status(404);
+        res.send({
+            error: "Retoure does not exist!"
+        });
+    }
+})
+
 // POST ONE
 router.post('/', async(req, res) => {
     const newRetoure = new Retoure({
@@ -63,29 +77,42 @@ router.patch('/:id', async(req, res) => {
         }
 
         if (req.body.orderNo) {
-            retoure.name = req.body.orderNo
+            retoure.orderNo = req.body.orderNo
         }
 
         if (req.body.returnNo) {
-            retoure.name = req.body.returnNo
+            retoure.returnNo = req.body.returnNo
         }
 
         if (req.body.paymentDueDate) {
-            retoure.name = req.body.paymentDueDate
+            retoure.paymentDueDate = req.body.paymentDueDate
         }
 
         if (req.body.returnDueDate) {
-            retoure.name = req.body.returnDueDate
+            retoure.returnDueDate = req.body.returnDueDate
         }
 
         if (req.body.notes) {
-            retoure.name = req.body.notes
+            retoure.notes = req.body.notes
         }
 
         if (req.body.status) {
             retoure.status = req.body.status
         }
 
+        await Retoure.updateOne({ _id: req.params.id }, retoure);
+        res.send(retoure)
+    } catch {
+        res.status(404)
+        res.send({ error: "Retoure does not exist!" })
+    }
+});
+
+// UPDATE STATUS
+router.patch('/:id', async(req, res) => {
+    try {
+        const retoure = await Retoure.findOne({ _id: req.params.id });
+        retoure.status = req.body
         await Retoure.updateOne({ _id: req.params.id }, retoure);
         res.send(retoure)
     } catch {

@@ -5,6 +5,7 @@ import { AuthService } from 'app/shared/services/auth.service';
 import { User } from 'app/shared/models/user';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { RetoureFormComponent } from '../retoure-form/retoure-form.component';
+import { RetourenService } from 'app/shared/services/retouren.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,57 +14,47 @@ import { RetoureFormComponent } from '../retoure-form/retoure-form.component';
 })
 export class DashboardComponent implements OnInit {
 
-  sampleData: Retoure[] = [
-    {
-      _id: '',
-      name: 'Retoure 1',
-      orderNo: 'ON11111',
-      returnNo: 'RN11111',
-      paymentDueDate: new Date('January 20, 2023 00:00:00'),
-      returnDueDate: new Date('January 10, 2023 00:00:00'),
-      notes: '',
-    },
-    {
-      _id: '',
-      name: 'Retoure 2',
-      orderNo: 'ON22222',
-      returnNo: 'RN22222',
-      paymentDueDate: new Date('February 10, 2023 00:00:00'),
-      returnDueDate: new Date('February 20, 2023 00:00:00'),
-      notes: '',
-    },
-    {
-      _id: '',
-      name: 'Retoure 3',
-      orderNo: 'ON33333',
-      returnNo: 'RN33333',
-      paymentDueDate: new Date('March 10, 2023 00:00:00'),
-      returnDueDate: new Date('March 20, 2023 00:00:00'),
-      notes: '',
-    },
-    {
-      _id: '',
-      name: 'Retoure 4',
-      orderNo: 'ON44444',
-      returnNo: 'RN44444',
-      paymentDueDate: new Date('April 20, 2023 00:00:00'),
-      returnDueDate: new Date('April 10, 2023 00:00:00'),
-      notes: '',
-    },
-  ]
+  stepOne: Retoure[] = []
+  stepTwo: Retoure[] = []
+  stepThree: Retoure[] = []
+  stepFour: Retoure[] = []
 
-  secondStep: Retoure[] = []
-  thirdStep: Retoure[] = []
-  fourthStep: Retoure[] = []
+  loggedInUser: User = {_id: '', username: '', email: '', password: ''};
 
-  loggedInUser: User = this.auth.user;
+  RetourenForUser: Retoure[] = [];
 
-  constructor(private auth: AuthService, private dialog: MatDialog) { }
+  constructor(private auth: AuthService, private service: RetourenService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
+    this.loggedInUser = this.auth.user;
+    this.service.getReturnsForUserAndStatus(this.loggedInUser._id, 'stepOne').subscribe((res) => {
+      console.log(res);
+      this.stepOne = res;
+    });
+    this.service.getReturnsForUserAndStatus(this.loggedInUser._id, 'stepTwo').subscribe((res) => {
+      console.log(res);
+      this.stepTwo = res;
+    });
+    this.service.getReturnsForUserAndStatus(this.loggedInUser._id, 'stepThree').subscribe((res) => {
+      console.log(res);
+      this.stepThree = res;
+    });
+    this.service.getReturnsForUserAndStatus(this.loggedInUser._id, 'stepFour').subscribe((res) => {
+      console.log(res);
+      this.stepFour = res;
+    });
   }
 
-  drop(event: CdkDragDrop<Retoure[]>) {
+  changeStatus(newStatus: string): void {
+    this.stepOne.forEach((retoure: Retoure) => {
+      if (retoure.status != newStatus) {
+        retoure.status = newStatus;
+        this.service.updateReturn(retoure._id, retoure).subscribe();
+      }
+    })
+  }
+
+  droppedInOne(event: CdkDragDrop<Retoure[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
@@ -73,6 +64,49 @@ export class DashboardComponent implements OnInit {
         event.previousIndex,
         event.currentIndex,
       );
+      this.changeStatus('stepOne');
+    }
+  }
+
+  droppedInTwo(event: CdkDragDrop<Retoure[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex,
+      );
+      this.changeStatus('stepTwo');
+    }
+  }
+
+  droppedInThree(event: CdkDragDrop<Retoure[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex,
+      );
+      this.changeStatus('stepThree');
+    }
+  }
+
+  droppedInFour(event: CdkDragDrop<Retoure[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex,
+      );
+      this.changeStatus('stepFour');
     }
   }
 

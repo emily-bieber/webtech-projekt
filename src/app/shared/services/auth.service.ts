@@ -8,8 +8,9 @@ import { User } from '../models/user';
 })
 
 export class AuthService {
+  
   baseUrl = 'http://localhost:3000';
-  user: User = {username: '', password: '', email: ''};
+  user: User = {_id: '', username: '', password: '', email: ''};
   userChange: Subject<User> = new Subject<User>();
   loggedIn = false;
   loggedInChange: Subject<boolean> = new Subject<boolean>();
@@ -54,7 +55,7 @@ export class AuthService {
   logout(): void {
     this.loggedIn = false;
     this.loggedInChange.next(this.loggedIn);
-    this.user = {username: '', password: '', email: ''};
+    this.user = {_id: '', username: '', password: '', email: ''};
     this.userChange.next(this.user);
   }
 }

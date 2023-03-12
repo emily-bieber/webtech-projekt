@@ -29,13 +29,18 @@ export class RegistrationComponent implements OnInit {
   onSubmit(): void {
     const values = this.registerForm.value;
     this.user = {
+      _id: '',
       username: values.username!,
       email: values.email!,
       password: values.password!
     };
     console.log(this.user)
     this.auth.registerUser(this.user).subscribe({
-        next: (response) => console.log('response', response),
+        next: (response) => {
+          console.log('response', response);
+          this.user = response;
+          this.auth.login(this.user);
+        },
         error: (err) => console.log(err),
         complete: () => {
           console.log('register completed')

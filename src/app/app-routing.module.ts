@@ -3,9 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { RetoureFormComponent } from './components/retoure-form/retoure-form.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { RegistrationSuccessComponent } from './components/registration-success/registration-success.component';
+import { AuthguardGuard } from './guards/shared/authguard.guard';
 
 const routes: Routes = [
   {
@@ -27,7 +27,8 @@ const routes: Routes = [
   },
   {
     path:'dashboard',
-    component: DashboardComponent
+    component: DashboardComponent,
+    canActivate: [AuthguardGuard]
   },
 ];
 
