@@ -5,7 +5,7 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { RegistrationSuccessComponent } from './components/registration-success/registration-success.component';
-import { AuthguardGuard } from './guards/shared/authguard.guard';
+import { AuthguardGuard } from './guards/authguard.guard';
 
 const routes: Routes = [
   {

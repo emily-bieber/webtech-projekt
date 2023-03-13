@@ -45,11 +45,12 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  changeStatus(newStatus: string): void {
-    this.stepOne.forEach((retoure: Retoure) => {
+  changeStatus(step: Retoure[],newStatus: string): void {
+    step.forEach((retoure: Retoure) => {
       if (retoure.status != newStatus) {
         retoure.status = newStatus;
         this.service.updateReturn(retoure._id, retoure).subscribe();
+        console.log('retoure: ' + retoure._id + ', newStatus: ' + retoure.status);
       }
     })
   }
@@ -64,7 +65,7 @@ export class DashboardComponent implements OnInit {
         event.previousIndex,
         event.currentIndex,
       );
-      this.changeStatus('stepOne');
+      this.changeStatus(this.stepOne ,'stepOne');
     }
   }
 
@@ -78,7 +79,7 @@ export class DashboardComponent implements OnInit {
         event.previousIndex,
         event.currentIndex,
       );
-      this.changeStatus('stepTwo');
+      this.changeStatus(this.stepTwo, 'stepTwo');
     }
   }
 
@@ -92,7 +93,7 @@ export class DashboardComponent implements OnInit {
         event.previousIndex,
         event.currentIndex,
       );
-      this.changeStatus('stepThree');
+      this.changeStatus(this.stepThree, 'stepThree');
     }
   }
 
@@ -106,7 +107,7 @@ export class DashboardComponent implements OnInit {
         event.previousIndex,
         event.currentIndex,
       );
-      this.changeStatus('stepFour');
+      this.changeStatus(this.stepFour, 'stepFour');
     }
   }
 

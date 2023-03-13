@@ -12,7 +12,6 @@ router.get('/', async(req, res) => {
 // GET ONE VIA ID
 router.get('/:id', async(req, res) => {
     const retoure = await Retoure.findOne({ _id: req.params.id });
-    console.log(req.params);
     if(retoure) {
         res.send(retoure);
     } else {
@@ -26,7 +25,6 @@ router.get('/:id', async(req, res) => {
 // GET ALL FOR ONE USER
 router.get('/user/:userid', async(req, res) => {
     const retoure = await Retoure.find({ userid: req.params.userid });
-    console.log(req.params);
     if(retoure) {
         res.send(retoure);
     } else {
@@ -40,7 +38,6 @@ router.get('/user/:userid', async(req, res) => {
 // GET ALL FOR ONE USER AND ONE STATUS
 router.get('/user/:userid/:status', async(req, res) => {
     const retoure = await Retoure.find({ userid: req.params.userid, status: req.params.status });
-    console.log(req.params);
     if(retoure) {
         res.send(retoure);
     } else {
@@ -131,6 +128,5 @@ router.delete('/:id', async(req, res) => {
         res.send({ error: "Retoure does not exist!" })
     }
 });
-
 
 module.exports = router;
