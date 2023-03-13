@@ -8,7 +8,6 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
 import { LoginComponent } from './components/login/login.component';
 import { ImpressumComponent } from './components/impressum/impressum.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { DialogComponent } from './components/dialog/dialog.component';
 import { RetoureFormComponent } from './components/retoure-form/retoure-form.component';
 import {MatCardModule} from "@angular/material/card";
 import {MatIconModule} from "@angular/material/icon";
@@ -23,7 +22,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatNativeDateModule } from '@angular/material/core';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { HttpClientModule } from '@angular/common/http';
-import { RegistrationSuccessComponent } from './components/registration-success/registration-success.component'
+import { RegistrationSuccessComponent } from './components/registration-success/registration-success.component';
+import { EditRetoureComponent } from './components/edit-retoure/edit-retoure.component';
+import { DeleteRetoureComponent } from './components/delete-retoure/delete-retoure.component'
 
 @NgModule({
   declarations: [
@@ -32,10 +33,11 @@ import { RegistrationSuccessComponent } from './components/registration-success/
     LoginComponent,
     ImpressumComponent,
     DashboardComponent,
-    DialogComponent,
     RetoureFormComponent,
     RegistrationComponent,
-    RegistrationSuccessComponent
+    RegistrationSuccessComponent,
+    EditRetoureComponent,
+    DeleteRetoureComponent
   ],
   imports: [
     BrowserModule,

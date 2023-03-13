@@ -6,6 +6,8 @@ import { User } from 'app/shared/models/user';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { RetoureFormComponent } from '../retoure-form/retoure-form.component';
 import { RetourenService } from 'app/shared/services/retouren.service';
+import { EditRetoureComponent } from '../edit-retoure/edit-retoure.component';
+import { DeleteRetoureComponent } from '../delete-retoure/delete-retoure.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -27,6 +29,13 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.loggedInUser = this.auth.user;
+    this.getAll(this.loggedInUser._id);
+    this.service.refreshRequired.subscribe( res => {
+      this.getAll(this.loggedInUser._id);
+    });
+  }
+
+  getAll(userid: string) {
     this.service.getReturnsForUserAndStatus(this.loggedInUser._id, 'stepOne').subscribe((res) => {
       console.log(res);
       this.stepOne = res;
@@ -109,6 +118,42 @@ export class DashboardComponent implements OnInit {
       );
       this.changeStatus(this.stepFour, 'stepFour');
     }
+  }
+
+  openEditRetoure(retoure: Retoure): void {
+    this.dialog.open(EditRetoureComponent, {
+      width: '50%',
+      height: 'auto',
+      data: {
+        _id: retoure._id,
+        name: retoure.name,
+        orderNo: retoure.orderNo,
+        returnNo: retoure.returnNo,
+        paymentDueDate: retoure.paymentDueDate,
+        returnDueDate: retoure.returnDueDate,
+        notes: retoure.notes,
+        userid: retoure.userid,
+        status: retoure.status
+      }
+    });
+  }
+
+  openDeleteRetoure(retoure: Retoure): void {
+    this.dialog.open(DeleteRetoureComponent, {
+      width: 'auto',
+      height: 'auto',
+      data: {
+        _id: retoure._id,
+        name: retoure.name,
+        orderNo: retoure.orderNo,
+        returnNo: retoure.returnNo,
+        paymentDueDate: retoure.paymentDueDate,
+        returnDueDate: retoure.returnDueDate,
+        notes: retoure.notes,
+        userid: retoure.userid,
+        status: retoure.status
+      }
+    });
   }
 
   openForm(): void {

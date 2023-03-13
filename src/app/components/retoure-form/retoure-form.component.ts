@@ -44,7 +44,7 @@ export class RetoureFormComponent implements OnInit {
       status: 'stepOne'
     }
     this.service.createReturn(newRetoure).subscribe();
-    console.log(newRetoure)
+    console.log(newRetoure);
     console.log('Retoure gespeichert');
   }
 

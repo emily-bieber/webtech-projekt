@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Retoure } from '../models/retoure';
-import { Observable } from 'rxjs';
+import { Observable, Subject, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +11,12 @@ export class RetourenService {
   constructor(private http: HttpClient) { }
 
   baseUrl = 'http://localhost:3000/retouren';
+
+  private _refreshRequired = new Subject<void>();
+
+  get refreshRequired() {
+    return this._refreshRequired;
+  }
 
   getAllReturns(): Observable<Retoure[]>{
     return this.http.get<Retoure[]>(this.baseUrl);
@@ -33,14 +39,26 @@ export class RetourenService {
   }
 
   createReturn(newRetoure: Retoure): Observable<Retoure> {
-    return this.http.post<Retoure>(this.baseUrl + '/', newRetoure);
+    return this.http.post<Retoure>(this.baseUrl + '/', newRetoure).pipe(
+      tap(() => {
+        this.refreshRequired.next();
+      })
+    );;
   }
 
   updateReturn(id: string, newValues: Retoure): Observable<Retoure>{
-    return this.http.patch<Retoure>(this.baseUrl + '/' + id, newValues);
+    return this.http.patch<Retoure>(this.baseUrl + '/' + id, newValues).pipe(
+      tap(() => {
+        this.refreshRequired.next();
+      })
+    );
   }
 
   deleteReturn(id: string){
-    return this.http.delete<Retoure>(this.baseUrl + '/' + id);
+    return this.http.delete<Retoure>(this.baseUrl + '/' + id).pipe(
+      tap(() => {
+        this.refreshRequired.next();
+      })
+    );;
   }
 }

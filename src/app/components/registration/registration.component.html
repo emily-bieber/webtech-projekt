@@ -1,9 +1,8 @@
-<div class="hero min-h-screen" style="background-image: url(../../../assets/images/background-img.jpg);">
-    <div class="hero-content w-3/12 text-center">
-        <div class="card bg-base-100 shadow-xl w-full">
+<div class="background flex justify-center content-center">
+        <div class="card bg-base-100 shadow-xl w-1/4 h-fit">
             <div class="card-body flex justify-center">
                 <div class="my-8">
-                    <p class="text-6xl">SIGN UP</p>
+                    <p class="text-6xl text-center">SIGN UP</p>
                 </div>
                 <div class="login-form">
                     <form class="flex flex-col gap-4 mb-5" [formGroup]="registerForm">
@@ -25,7 +24,7 @@
                         <div>
                             <div class="input-group">
                                 <input [type]="hide ? 'password' : 'text'" placeholder="Password" class="input input-bordered w-full" formControlName="password" />
-                                <button class="btn btn-square" (click)="hide = !hide">
+                                <button class="btn btn-primary btn-square" (click)="hide = !hide">
                                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                                 </button>
                             </div>
@@ -39,7 +38,7 @@
                         <div>
                             <div class="input-group">
                                 <input [type]="hide2 ? 'password' : 'text'" placeholder="repeat password" class="input input-bordered w-full" formControlName="password2" />
-                                <button class="btn btn-square" (click)="hide2 = !hide2">
+                                <button class="btn btn-primary btn-square" (click)="hide2 = !hide2">
                                     <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
                                 </button>
                             </div>
@@ -53,9 +52,8 @@
                     </form>
                 </div>
             <div class="card-actions justify-end">
-                <button class="btn px-8 mt-5" [disabled]="registerForm.invalid || (registerForm.controls['password2'].value != registerForm.controls['password'].value)" (click)="onSubmit()">Sign Up</button>
+                <button class="btn btn-primary px-8 mt-5" [disabled]="registerForm.invalid || (registerForm.controls['password2'].value != registerForm.controls['password'].value)" (click)="onSubmit()">Sign Up</button>
             </div>
         </div>
         </div>
     </div>
-</div>
