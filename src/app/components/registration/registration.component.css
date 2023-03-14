@@ -1,13 +1,17 @@
+.background {
+    background-image: url(../../../assets/images/background-img.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+   }
+
 input.ng-touched.ng-invalid {
     border: solid 2px red;
 }
 
 input.ng-touched.ng-valid {
     border: solid 2px green;
-}
-
-.image {
-    object-fit: cover;
 }
 
 

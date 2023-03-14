@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Retoure } from '../../shared/models/retoure';
+import { RetourenService } from 'app/shared/services/retouren.service';
+import { User } from 'app/shared/models/user';
+import { AuthService } from 'app/shared/services/auth.service';
 
 @Component({
   selector: 'app-retoure-form',
@@ -8,6 +11,8 @@ import { Retoure } from '../../shared/models/retoure';
   styleUrls: ['./retoure-form.component.css']
 })
 export class RetoureFormComponent implements OnInit {
+
+  loggedInUser: User = {_id: '', username: '', email: '', password: ''};
 
   retoureForm = new FormGroup({
     name: new FormControl('', Validators.required),
@@ -20,9 +25,11 @@ export class RetoureFormComponent implements OnInit {
 
   // newRetoure: Retoure = {_id: '', name: '', orderNo: '', returnNo: '', paymentDueDate: new Date(), returnDueDate: new Date(), notes: ''};
 
-  constructor() {}
+  constructor(private service: RetourenService, private auth: AuthService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.loggedInUser = this.auth.user;
+  }
 
   closeAndSave(): void {
     const newRetoure: Retoure = {
@@ -33,10 +40,16 @@ export class RetoureFormComponent implements OnInit {
       paymentDueDate: this.retoureForm.value.paymentDueDate,
       returnDueDate: this.retoureForm.value.returnDueDate,
       notes: this.retoureForm.value.notes,
+<<<<<<< HEAD
       //new ---------------
       userid: '',
       status: ''
+=======
+      userid: this.loggedInUser._id,
+      status: 'stepOne'
+>>>>>>> abf366928d453a310f17b03cf778aa681e3f9f96
     }
+    this.service.createReturn(newRetoure).subscribe();
     console.log(newRetoure);
     console.log('Retoure gespeichert');
   }

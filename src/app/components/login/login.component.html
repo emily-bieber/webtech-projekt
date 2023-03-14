@@ -1,9 +1,8 @@
-<div class="hero min-h-screen" style="background-image: url(../../../assets/images/background-img.jpg);">
-    <div class="hero-content w-3/12 text-center">
-        <div class="card bg-base-100 shadow-xl w-full">
+<div class="background flex justify-center">
+        <div class="card bg-base-100 shadow-xl w-1/4 h-fit">
             <div class="card-body flex justify-center">
                 <div class="my-8">
-                    <p class="text-6xl">LOGIN</p>
+                    <p class="text-6xl text-center">LOGIN</p>
                 </div>
                 <div class="login-form">
                     <form class="flex flex-col gap-4 mb-5" [formGroup]="loginForm">
@@ -11,7 +10,7 @@
                         <!-- <mat-error *ngIf="username.touched && username.invalid" class="error">Please type in your username</mat-error> -->
                         <div class="input-group">
                             <input [type]="hide ? 'password' : 'text'" placeholder="Password" class="input input-bordered w-full" formControlName="password" />
-                            <button class="btn btn-square" (click)="hide = !hide">
+                            <button class="btn btn-square btn-primary" (click)="hide = !hide">
                                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                             </button>
                             <!-- <mat-error *ngIf="password.touched && password.invalid" class="error">{{ getErrorMessage() }}</mat-error> -->
@@ -19,9 +18,8 @@
                     </form>
                 </div>
             <div class="card-actions justify-end">
-                <button class="btn px-8 mt-5" [disabled]="loginForm.invalid" (click)="onSubmit()">Login</button>
+                <button class="btn btn-primary px-8 mt-5" [disabled]="loginForm.invalid" (click)="onSubmit()">Login</button>
             </div>
         </div>
         </div>
-    </div>
 </div>

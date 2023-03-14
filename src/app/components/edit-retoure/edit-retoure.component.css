@@ -1,0 +1,21 @@
+.example-form {
+    display: flex;
+    flex-direction: column;
+  } 
+  
+  .mat-dialog-content {
+  width: 100%;
+  background-color: #edf1f6;
+  padding: 30px;
+  margin: 0px;
+  
+  }
+  
+  .btn {
+    margin: 10px;
+  }
+  
+  ::ng-deep .mat-dialog-container {
+    border-radius: 20px !important;
+  }
+  

@@ -1,6 +1,6 @@
-<h2 mat-dialog-title>Füge eine neue Retoure hinzu:</h2>
+<h2 mat-dialog-title>Bearbeite deine Retoure:</h2>
 <mat-dialog-content>
-    <form class="example-form" [formGroup]="retoureForm">
+    <form class="example-form" [formGroup]="updateRetoureForm">
       <mat-form-field class="example-full-width">
         <mat-label>Name des Unternehmens</mat-label>
         <input matInput formControlName="name" placeholder="Unternehmen">
@@ -8,7 +8,7 @@
 
       <mat-form-field class="example-full-width">
         <mat-label>Bestellnummer</mat-label>
-        <input matInput formControlName="orderNo" placeholder="z.B 03913910">
+        <input matInput formControlName="orderNo" placeholder="retoure.name">
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
@@ -42,11 +42,5 @@
 <mat-dialog-actions align="end">
   <label mat-dialog-close class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
     <button mat-dialog-close class="btn btn-sm btn-outline btn-primary">Abbruch</button>
-    <button mat-dialog-close class="btn btn-sm btn-primary" [disabled]="retoureForm.invalid" (click)="closeAndSave()">Speichern</button>
+    <button mat-dialog-close class="btn btn-sm btn-primary" (click)="updateRetoure()">Speichern</button>
   </mat-dialog-actions>
-
-    
-      
-
-
-
