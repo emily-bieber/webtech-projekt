@@ -16,60 +16,10 @@ import { DeleteRetoureComponent } from '../delete-retoure/delete-retoure.compone
 })
 export class DashboardComponent implements OnInit {
 
-<<<<<<< HEAD
-  sampleData: Retoure[] = [
-    {
-      _id: '',
-      name: 'Retoure 1',
-      orderNo: 'ON11111',
-      returnNo: 'RN11111',
-      paymentDueDate: new Date('January 20, 2023 00:00:00'),
-      returnDueDate: new Date('January 10, 2023 00:00:00'),
-      notes: '',
-      userid: '',
-      status: ''
-
-    },
-    {
-      _id: '',
-      name: 'Retoure 2',
-      orderNo: 'ON22222',
-      returnNo: 'RN22222',
-      paymentDueDate: new Date('February 10, 2023 00:00:00'),
-      returnDueDate: new Date('February 20, 2023 00:00:00'),
-      notes: '',
-      userid: '',
-      status: ''
-    },
-    {
-      _id: '',
-      name: 'Retoure 3',
-      orderNo: 'ON33333',
-      returnNo: 'RN33333',
-      paymentDueDate: new Date('March 10, 2023 00:00:00'),
-      returnDueDate: new Date('March 20, 2023 00:00:00'),
-      notes: '',
-      userid: '',
-      status: ''
-    },
-    {
-      _id: '',
-      name: 'Retoure 4',
-      orderNo: 'ON44444',
-      returnNo: 'RN44444',
-      paymentDueDate: new Date('April 20, 2023 00:00:00'),
-      returnDueDate: new Date('April 10, 2023 00:00:00'),
-      notes: '',
-      userid: '',
-      status: ''
-    },
-  ]
-=======
   stepOne: Retoure[] = []
   stepTwo: Retoure[] = []
   stepThree: Retoure[] = []
   stepFour: Retoure[] = []
->>>>>>> abf366928d453a310f17b03cf778aa681e3f9f96
 
   loggedInUser: User = {_id: '', username: '', email: '', password: ''};
 
