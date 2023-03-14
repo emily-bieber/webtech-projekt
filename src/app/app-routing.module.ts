@@ -6,6 +6,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { RegistrationSuccessComponent } from './components/registration-success/registration-success.component';
 import { AuthguardGuard } from './guards/authguard.guard';
+import { RetoureFormComponent } from './components/retoure-form/retoure-form.component';
 
 const routes: Routes = [
   {
