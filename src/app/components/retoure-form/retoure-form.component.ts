@@ -40,14 +40,8 @@ export class RetoureFormComponent implements OnInit {
       paymentDueDate: this.retoureForm.value.paymentDueDate,
       returnDueDate: this.retoureForm.value.returnDueDate,
       notes: this.retoureForm.value.notes,
-<<<<<<< HEAD
-      //new ---------------
-      userid: '',
-      status: ''
-=======
       userid: this.loggedInUser._id,
       status: 'stepOne'
->>>>>>> abf366928d453a310f17b03cf778aa681e3f9f96
     }
     this.service.createReturn(newRetoure).subscribe();
     console.log(newRetoure);
