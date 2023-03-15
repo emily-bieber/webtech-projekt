@@ -7,6 +7,8 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { RegistrationSuccessComponent } from './components/registration-success/registration-success.component';
 import { AuthguardGuard } from './guards/authguard.guard';
 import { RetoureFormComponent } from './components/retoure-form/retoure-form.component';
+import { NavComponent } from './components/nav/nav.component';
+import { ImpressumComponent } from './components/impressum/impressum.component';
 
 const routes: Routes = [
   {
@@ -14,6 +16,13 @@ const routes: Routes = [
     component: LandingPageComponent,
     pathMatch: 'full'
   },
+
+  {
+    path:'landing-page',
+    component: LandingPageComponent,
+    pathMatch: 'full'
+  },
+
   {
     path: 'register',
     component: RegistrationComponent
@@ -34,7 +43,16 @@ const routes: Routes = [
 
   { path: 'form',
     component: RetoureFormComponent
+  },
+
+  { path: 'nav',
+    component: NavComponent
+  },
+
+  { path: 'about',
+    component: ImpressumComponent
   }
+
 ];
 
 @NgModule({

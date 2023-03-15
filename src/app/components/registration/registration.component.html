@@ -1,5 +1,5 @@
 <div class="background flex justify-center content-center">
-        <div class="card bg-base-100 shadow-xl w-1/4 h-fit">
+        <div class="card bg-base-100 shadow-xl w-1/4 h-fit my-8">
             <div class="card-body flex justify-center">
                 <div class="my-8">
                     <p class="text-6xl text-center">SIGN UP</p>
@@ -51,8 +51,9 @@
                         </div>
                     </form>
                 </div>
-            <div class="card-actions justify-end">
+            <div class="actions flex gap-4">
                 <button class="btn btn-primary px-8 mt-5" [disabled]="registerForm.invalid || (registerForm.controls['password2'].value != registerForm.controls['password'].value)" (click)="onSubmit()">Sign Up</button>
+                <button mat-dialog-close class="btn btn-outline btn-primary px-8 mt-5" (click)="redirectToLandingPage()">Abbruch</button>
             </div>
         </div>
         </div>

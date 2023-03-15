@@ -24,7 +24,8 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { HttpClientModule } from '@angular/common/http';
 import { RegistrationSuccessComponent } from './components/registration-success/registration-success.component';
 import { EditRetoureComponent } from './components/edit-retoure/edit-retoure.component';
-import { DeleteRetoureComponent } from './components/delete-retoure/delete-retoure.component'
+import { DeleteRetoureComponent } from './components/delete-retoure/delete-retoure.component';
+import { NavComponent } from './components/nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { DeleteRetoureComponent } from './components/delete-retoure/delete-retou
     RegistrationComponent,
     RegistrationSuccessComponent,
     EditRetoureComponent,
-    DeleteRetoureComponent
+    DeleteRetoureComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,

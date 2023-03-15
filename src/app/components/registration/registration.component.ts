@@ -47,7 +47,9 @@ export class RegistrationComponent implements OnInit {
           this.router.navigate(['/register/successful'])}
     });
   }
-
+  redirectToLandingPage() {
+    this.router.navigate(['']);
+  }
 
 }
 

@@ -55,4 +55,8 @@ export class LoginComponent implements OnInit {
 
   }
 
+  redirectToLandingPage() {
+    this.router.navigate(['']);
+  }
+
 }
