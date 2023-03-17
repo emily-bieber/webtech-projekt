@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'app/shared/services/auth.service';
 
 @Component({
@@ -8,20 +9,36 @@ import { AuthService } from 'app/shared/services/auth.service';
 })
 export class NavComponent implements OnInit {
 
-  loggedIn: boolean = false;
+  isLoggedIn: boolean = false;
+  username: string = '';
 
-  constructor(private auth: AuthService) {}
+  constructor(private auth: AuthService, private router: Router) {
+    this.auth.loggedInChange.subscribe( value => {
+      this.isLoggedIn = value
+      if(this.isLoggedIn) {
+        this.auth.userChange.subscribe( val => {
+          console.log('nav user', val)
+          this.username = val?.username;
+          console.log('nav username', this.username)
+        })
+
+      }
+    })
+  }
   ngOnInit(): void {
     throw new Error('Method not implemented.');
   }
 
   checkIfLoggedIn(): boolean {
-    this.loggedIn = this.auth.isLoggedin();
-    return this.loggedIn;
+    this.isLoggedIn = this.auth.isLoggedin();
+    return this.isLoggedIn;
   }
 
-  logout(): void {
+  callLogout() {
+    this.isLoggedIn = false;
     this.auth.logout();
+    this.router.navigate(['/'])
   }
+
 }
 

@@ -1,167 +1,173 @@
 <div class="background">
-<h1>HELLO {{ loggedInUser.username }}</h1>
-
-<button class="btn btn-primary ml-8 mb-8" (click)="openForm()">neue Retoure anlegen</button>
-
-<div class="mx-8">
-    <div cdkDropListGroup class="grid grid-cols-4 gap-8">
-    <mat-card class="bg-primary">
-        <!-- Retoure angemeldet -->
-        <div class="step-container ">
-            <div class="headline text-center">
-                <mat-icon>note</mat-icon>
-                <h2>Retoure angemeldet</h2>
-            </div>
-            <div class="divider my-1"></div> 
-            <div
-                cdkDropList
-                [cdkDropListData]="stepOne"
-                class="example-list flex flex-col gap-3"
-                (cdkDropListDropped)="droppedInOne($event)"
-                >
-                <div *ngFor="let data of stepOne " class="collapse collapse-arrow bg-base-200 rounded-box" cdkDrag>
-                    <input type="checkbox" />
-                    <div class="collapse-title text-xl font-medium">
-                        {{ data.name }}
-                    </div>
-                    <div class="collapse-content"> 
-                        <p *ngIf="data.orderNo"><span class="font-medium">Bestellnummer:</span> <br> {{ data.orderNo }}</p>
-                        <p *ngIf="data.returnNo"><span class="font-medium">Rücksendungsnummer:</span> <br> {{ data.returnNo }}</p>
-                        <p *ngIf="data.returnDueDate"><span class="font-medium">Rücksendungsfrist:</span> <br> {{ data.returnDueDate | date:'longDate'}}</p>
-                        <p *ngIf="data.paymentDueDate"><span class="font-medium">Zahlungsfrist:</span> <br> {{ data.paymentDueDate | date:'longDate'}}</p>
-                        <p *ngIf="data.notes"><span class="font-medium">Notizen:</span> <br> {{ data.notes }}</p>
-                        <div class="actions mt-4 flex gap-3 justify-end">
-                            <button class="btn btn-circle btn-primary" (click)="openEditRetoure(data)">
-                                <mat-icon>edit</mat-icon>
-                            </button>
-                            <button class="btn btn-circle btn-outline btn-primary" (click)="openDeleteRetoure(data)">
-                                <mat-icon>delete</mat-icon>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </mat-card>
     
-
-    <mat-card class="bg-primary">    
-        <!-- Retoure abgeschickt -->
-        <div class="step-container">
-            <div class="headline text-center">
-                <mat-icon>local_shipping</mat-icon>
-                <h2 class="text-center">Retoure abgeschickt</h2>
-            </div>
-            <div class="divider my-1"></div>
-            <div
-                cdkDropList
-                [cdkDropListData]="stepTwo"
-                class="example-list flex flex-col gap-3"
-                (cdkDropListDropped)="droppedInTwo($event)"
-                >
-                <div *ngFor="let data of stepTwo" class="collapse collapse-arrow bg-base-200 rounded-box" cdkDrag>
-                    <input type="checkbox" />
-                    <div class="collapse-title text-xl font-medium">
-                        {{ data.name }}
-                    </div>
-                    <div class="collapse-content"> 
-                        <p *ngIf="data.orderNo"><span class="font-medium">Bestellnummer:</span> <br> {{ data.orderNo }}</p>
-                        <p *ngIf="data.returnNo"><span class="font-medium">Rücksendungsnummer:</span> <br> {{ data.returnNo }}</p>
-                        <p *ngIf="data.returnDueDate"><span class="font-medium">Rücksendungsfrist:</span> <br> {{ data.returnDueDate | date:'longDate'}}</p>
-                        <p *ngIf="data.paymentDueDate"><span class="font-medium">Zahlungsfrist:</span> <br> {{ data.paymentDueDate | date:'longDate'}}</p>
-                        <p *ngIf="data.notes"><span class="font-medium">Notizen:</span> <br> {{ data.notes }}</p>
-                        <div class="actions mt-4 flex gap-3 justify-end">
-                            <button class="btn btn-circle btn-primary" (click)="openEditRetoure(data)">
-                                <mat-icon>edit</mat-icon>
-                            </button>
-                            <button class="btn btn-circle btn-outline btn-primary" (click)="openDeleteRetoure(data)">
-                                <mat-icon>delete</mat-icon>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </mat-card>
-
-    
-    <mat-card class="bg-primary">
-        <!-- Zahlungsfrist beachten -->
-        <div class="step-container">
-            <div class="headline text-center">
-                <mat-icon>payments</mat-icon>
-                <h2 class="text-center">Zahlungsfrist beachten</h2>
-            </div>
-            <div class="divider my-1"></div>
-            <div
-                cdkDropList
-                [cdkDropListData]="stepThree"
-                class="example-list flex flex-col gap-3"
-                (cdkDropListDropped)="droppedInThree($event)"
-                >
-                <div *ngFor="let data of stepThree" class="collapse collapse-arrow bg-base-200 rounded-box" cdkDrag>
-                    <input type="checkbox" />
-                    <div class="collapse-title text-xl font-medium">
-                        {{ data.name }}
-                    </div>
-                    <div class="collapse-content"> 
-                        <p *ngIf="data.orderNo"><span class="font-medium">Bestellnummer:</span> <br> {{ data.orderNo }}</p>
-                        <p *ngIf="data.returnNo"><span class="font-medium">Rücksendungsnummer:</span> <br> {{ data.returnNo }}</p>
-                        <p *ngIf="data.returnDueDate"><span class="font-medium">Rücksendungsfrist:</span> <br> {{ data.returnDueDate | date:'longDate'}}</p>
-                        <p *ngIf="data.paymentDueDate"><span class="font-medium">Zahlungsfrist:</span> <br> {{ data.paymentDueDate | date:'longDate'}}</p>
-                        <p *ngIf="data.notes"><span class="font-medium">Notizen:</span> <br> {{ data.notes }}</p>
-                        <div class="actions mt-4 flex gap-3 justify-end">
-                            <button class="btn btn-circle btn-primary" (click)="openEditRetoure(data)">
-                                <mat-icon>edit</mat-icon>
-                            </button>
-                            <button class="btn btn-circle btn-outline btn-primary" (click)="openDeleteRetoure(data)">
-                                <mat-icon>delete</mat-icon>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </mat-card>
-
-    <mat-card class="bg-primary">
-        <!-- Retoure abgeschlossen -->
-        <div class="step-container">
-            <div class="headline text-center">
-                <mat-icon>task</mat-icon>
-                <h2 class="text-center">Retoure abgeschlossen</h2>
-            </div>
-            <div class="divider my-1"></div>
-            <div
-                cdkDropList
-                [cdkDropListData]="stepFour"
-                class="example-list flex flex-col gap-3"
-                (cdkDropListDropped)="droppedInFour($event)"
-                >
-                <div *ngFor="let data of stepFour" class="collapse collapse-arrow bg-base-200 rounded-box" cdkDrag>
-                    <input type="checkbox" />
-                    <div class="collapse-title text-xl font-medium">
-                        {{ data.name }}
-                    </div>
-                    <div class="collapse-content"> 
-                        <p *ngIf="data.orderNo"><span class="font-medium">Bestellnummer:</span> <br> {{ data.orderNo }}</p>
-                        <p *ngIf="data.returnNo"><span class="font-medium">Rücksendungsnummer:</span> <br> {{ data.returnNo }}</p>
-                        <p *ngIf="data.returnDueDate"><span class="font-medium">Rücksendungsfrist:</span> <br> {{ data.returnDueDate | date:'longDate'}}</p>
-                        <p *ngIf="data.paymentDueDate"><span class="font-medium">Zahlungsfrist:</span> <br> {{ data.paymentDueDate | date:'longDate'}}</p>
-                        <p *ngIf="data.notes"><span class="font-medium">Notizen:</span> <br> {{ data.notes }}</p>
-                        <div class="actions mt-4 flex gap-3 justify-end">
-                            <button class="btn btn-circle btn-primary" (click)="openEditRetoure(data)">
-                                <mat-icon>edit</mat-icon>
-                            </button>
-                            <button class="btn btn-circle btn-outline btn-primary" (click)="openDeleteRetoure(data)">
-                                <mat-icon>delete</mat-icon>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </mat-card>
+    <div class="heading flex content-center gap-8 pt-8 ml-8 mb-8">
+        <mat-card class="bg-base-200">
+            <h1 class="ml-3 font-bold uppercase">Hallo {{ loggedInUser.username }}!</h1>
+            <h3 class="ml-3">Verschaffe dir einen Überblick über deine Retouren.</h3>
+        </mat-card>
+        <button class="btn btn-primary self-center" (click)="openForm()">neue Retoure anlegen</button>
     </div>
-</div>
+
+
+    <div class="mx-8">
+        <div cdkDropListGroup class="grid grid-cols-4 gap-8">
+            <mat-card class="bg-primary">
+                <!-- Retoure angemeldet -->
+                <div class="step-container ">
+                    <div class="headline text-center">
+                        <mat-icon>note</mat-icon>
+                        <h2>Retoure angemeldet</h2>
+                    </div>
+                    <div class="divider my-1"></div> 
+                    <div
+                        cdkDropList
+                        [cdkDropListData]="stepOne"
+                        class="example-list flex flex-col gap-3"
+                        (cdkDropListDropped)="droppedInOne($event)"
+                        >
+                        <div *ngFor="let data of stepOne " class="collapse collapse-arrow bg-base-200 rounded-box" cdkDrag>
+                            <input type="checkbox" />
+                            <div class="collapse-title text-xl font-medium">
+                                {{ data.name }}
+                            </div>
+                            <div class="collapse-content"> 
+                                <p *ngIf="data.orderNo"><span class="font-medium">Bestellnummer:</span> <br> {{ data.orderNo }}</p>
+                                <p *ngIf="data.returnNo"><span class="font-medium">Rücksendungsnummer:</span> <br> {{ data.returnNo }}</p>
+                                <p *ngIf="data.returnDueDate"><span class="font-medium">Rücksendungsfrist:</span> <br> {{ data.returnDueDate | date:'longDate'}}</p>
+                                <p *ngIf="data.paymentDueDate"><span class="font-medium">Zahlungsfrist:</span> <br> {{ data.paymentDueDate | date:'longDate'}}</p>
+                                <p *ngIf="data.notes"><span class="font-medium">Notizen:</span> <br> {{ data.notes }}</p>
+                                <div class="actions mt-4 flex gap-3 justify-end">
+                                    <button class="btn btn-circle btn-primary" (click)="openEditRetoure(data)">
+                                        <mat-icon>edit</mat-icon>
+                                    </button>
+                                    <button class="btn btn-circle btn-outline btn-primary" (click)="openDeleteRetoure(data)">
+                                        <mat-icon>delete</mat-icon>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </mat-card>
+            
+
+            <mat-card class="bg-primary">    
+                <!-- Retoure abgeschickt -->
+                <div class="step-container">
+                    <div class="headline text-center">
+                        <mat-icon>local_shipping</mat-icon>
+                        <h2 class="text-center">Retoure abgeschickt</h2>
+                    </div>
+                    <div class="divider my-1"></div>
+                    <div
+                        cdkDropList
+                        [cdkDropListData]="stepTwo"
+                        class="example-list flex flex-col gap-3"
+                        (cdkDropListDropped)="droppedInTwo($event)"
+                        >
+                        <div *ngFor="let data of stepTwo" class="collapse collapse-arrow bg-base-200 rounded-box" cdkDrag>
+                            <input type="checkbox" />
+                            <div class="collapse-title text-xl font-medium">
+                                {{ data.name }}
+                            </div>
+                            <div class="collapse-content"> 
+                                <p *ngIf="data.orderNo"><span class="font-medium">Bestellnummer:</span> <br> {{ data.orderNo }}</p>
+                                <p *ngIf="data.returnNo"><span class="font-medium">Rücksendungsnummer:</span> <br> {{ data.returnNo }}</p>
+                                <p *ngIf="data.returnDueDate"><span class="font-medium">Rücksendungsfrist:</span> <br> {{ data.returnDueDate | date:'longDate'}}</p>
+                                <p *ngIf="data.paymentDueDate"><span class="font-medium">Zahlungsfrist:</span> <br> {{ data.paymentDueDate | date:'longDate'}}</p>
+                                <p *ngIf="data.notes"><span class="font-medium">Notizen:</span> <br> {{ data.notes }}</p>
+                                <div class="actions mt-4 flex gap-3 justify-end">
+                                    <button class="btn btn-circle btn-primary" (click)="openEditRetoure(data)">
+                                        <mat-icon>edit</mat-icon>
+                                    </button>
+                                    <button class="btn btn-circle btn-outline btn-primary" (click)="openDeleteRetoure(data)">
+                                        <mat-icon>delete</mat-icon>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </mat-card>
+
+            
+            <mat-card class="bg-primary">
+                <!-- Zahlungsfrist beachten -->
+                <div class="step-container">
+                    <div class="headline text-center">
+                        <mat-icon>payments</mat-icon>
+                        <h2 class="text-center">Zahlungsfrist beachten</h2>
+                    </div>
+                    <div class="divider my-1"></div>
+                    <div
+                        cdkDropList
+                        [cdkDropListData]="stepThree"
+                        class="example-list flex flex-col gap-3"
+                        (cdkDropListDropped)="droppedInThree($event)"
+                        >
+                        <div *ngFor="let data of stepThree" class="collapse collapse-arrow bg-base-200 rounded-box" cdkDrag>
+                            <input type="checkbox" />
+                            <div class="collapse-title text-xl font-medium">
+                                {{ data.name }}
+                            </div>
+                            <div class="collapse-content"> 
+                                <p *ngIf="data.orderNo"><span class="font-medium">Bestellnummer:</span> <br> {{ data.orderNo }}</p>
+                                <p *ngIf="data.returnNo"><span class="font-medium">Rücksendungsnummer:</span> <br> {{ data.returnNo }}</p>
+                                <p *ngIf="data.returnDueDate"><span class="font-medium">Rücksendungsfrist:</span> <br> {{ data.returnDueDate | date:'longDate'}}</p>
+                                <p *ngIf="data.paymentDueDate"><span class="font-medium">Zahlungsfrist:</span> <br> {{ data.paymentDueDate | date:'longDate'}}</p>
+                                <p *ngIf="data.notes"><span class="font-medium">Notizen:</span> <br> {{ data.notes }}</p>
+                                <div class="actions mt-4 flex gap-3 justify-end">
+                                    <button class="btn btn-circle btn-primary" (click)="openEditRetoure(data)">
+                                        <mat-icon>edit</mat-icon>
+                                    </button>
+                                    <button class="btn btn-circle btn-outline btn-primary" (click)="openDeleteRetoure(data)">
+                                        <mat-icon>delete</mat-icon>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </mat-card>
+
+            <mat-card class="bg-primary">
+                <!-- Retoure abgeschlossen -->
+                <div class="step-container">
+                    <div class="headline text-center">
+                        <mat-icon>task</mat-icon>
+                        <h2 class="text-center">Retoure abgeschlossen</h2>
+                    </div>
+                    <div class="divider my-1"></div>
+                    <div
+                        cdkDropList
+                        [cdkDropListData]="stepFour"
+                        class="example-list flex flex-col gap-3"
+                        (cdkDropListDropped)="droppedInFour($event)"
+                        >
+                        <div *ngFor="let data of stepFour" class="collapse collapse-arrow bg-base-200 rounded-box" cdkDrag>
+                            <input type="checkbox" />
+                            <div class="collapse-title text-xl font-medium">
+                                {{ data.name }}
+                            </div>
+                            <div class="collapse-content"> 
+                                <p *ngIf="data.orderNo"><span class="font-medium">Bestellnummer:</span> <br> {{ data.orderNo }}</p>
+                                <p *ngIf="data.returnNo"><span class="font-medium">Rücksendungsnummer:</span> <br> {{ data.returnNo }}</p>
+                                <p *ngIf="data.returnDueDate"><span class="font-medium">Rücksendungsfrist:</span> <br> {{ data.returnDueDate | date:'longDate'}}</p>
+                                <p *ngIf="data.paymentDueDate"><span class="font-medium">Zahlungsfrist:</span> <br> {{ data.paymentDueDate | date:'longDate'}}</p>
+                                <p *ngIf="data.notes"><span class="font-medium">Notizen:</span> <br> {{ data.notes }}</p>
+                                <div class="actions mt-4 flex gap-3 justify-end">
+                                    <button class="btn btn-circle btn-primary" (click)="openEditRetoure(data)">
+                                        <mat-icon>edit</mat-icon>
+                                    </button>
+                                    <button class="btn btn-circle btn-outline btn-primary" (click)="openDeleteRetoure(data)">
+                                        <mat-icon>delete</mat-icon>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+    </div>
 </div>
