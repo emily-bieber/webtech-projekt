@@ -26,6 +26,7 @@ import { RegistrationSuccessComponent } from './components/registration-success/
 import { EditRetoureComponent } from './components/edit-retoure/edit-retoure.component';
 import { DeleteRetoureComponent } from './components/delete-retoure/delete-retoure.component';
 import { NavComponent } from './components/nav/nav.component';
+import { RegistrationExistComponent } from './components/registration/registration-exist/registration-exist.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { NavComponent } from './components/nav/nav.component';
     RegistrationSuccessComponent,
     EditRetoureComponent,
     DeleteRetoureComponent,
-    NavComponent
+    NavComponent,
+    RegistrationExistComponent
   ],
   imports: [
     BrowserModule,
