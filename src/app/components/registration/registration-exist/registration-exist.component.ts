@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { DialogData } from '../registration.component';
 
 @Component({
   selector: 'app-registration-exist',
   templateUrl: './registration-exist.component.html',
   styleUrls: ['./registration-exist.component.css']
 })
-export class RegistrationExistComponent implements OnInit {
+export class RegistrationExistComponent {
 
-  constructor() { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 
-  ngOnInit(): void {
-  }
+
 
 }

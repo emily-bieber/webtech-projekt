@@ -1,9 +1,7 @@
-<h2 mat-dialog-title>E-Mail bereits verwendet</h2>
-
-<mat-dialog-content>
-    Diese E-Mail ist bereits registriert!
-</mat-dialog-content>
-
-<mat-dialog-actions>
-    <button mat-button mat-dialog-close>Ok</button>
-</mat-dialog-actions>
+<h1 mat-dialog-title>{{ data.headline }}</h1>
+<div mat-dialog-content>
+  {{ data.info }}
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close cdkFocusInitial>Ok</button>
+</div>

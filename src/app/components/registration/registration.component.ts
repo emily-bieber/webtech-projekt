@@ -3,6 +3,13 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from '../../shared/models/user';
 import { AuthService } from 'app/shared/services/auth.service';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { RegistrationExistComponent } from './registration-exist/registration-exist.component';
+
+export interface DialogData {
+  headline: string;
+  info: string;
+}
 
 @Component({
   selector: 'app-login',
@@ -22,7 +29,7 @@ export class RegistrationComponent implements OnInit {
   hide2 = true;
   user!: User;
 
-  constructor( private auth: AuthService, private router: Router ) {}
+  constructor( private auth: AuthService, private router: Router, public dialog: MatDialog ) {}
 
   ngOnInit(): void {}
 
@@ -39,17 +46,26 @@ export class RegistrationComponent implements OnInit {
         next: (response) => {
           console.log('response', response);
           this.user = response;
+          this.openDialog({ headline: "Erfolg", info: "User " + response.username + " registriert! Melde dich jetzt an!" });
           this.auth.login(this.user);
         },
-        error: (err) => console.log(err),
-        complete: () => {
-          console.log('register completed')
-          this.router.navigate(['/register/successful'])}
+       // error: (err) => console.log(err),
+       // complete: () => {
+        //  console.log('register completed')
+        //this.router.navigate(['/register/successful'])}
+          error: (err) => {
+            console.log('error', err.error.error)
+            this.openDialog({ headline: "Fehler", info: "username und/oder E-Mail existiert bereits" });
+          },
+          complete: () => console.log('register completed')
     });
   }
   redirectToLandingPage() {
     this.router.navigate(['']);
   }
 
+  openDialog(data: DialogData) {
+    this.dialog.open(RegistrationExistComponent, { data });
+}
 }
 
