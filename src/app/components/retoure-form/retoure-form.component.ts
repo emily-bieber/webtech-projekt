@@ -18,8 +18,8 @@ export class RetoureFormComponent implements OnInit {
     name: new FormControl('', Validators.required),
     orderNo: new FormControl('', [Validators.required]),
     returnNo: new FormControl('', [Validators.required]),
-    paymentDueDate: new FormControl('', [Validators.required]),
-    returnDueDate: new FormControl(''),
+    paymentDueDate: new FormControl(''),
+    returnDueDate: new FormControl('',  [Validators.required]),
     notes: new FormControl(''),
   });
 
