@@ -46,7 +46,7 @@ export class RegistrationComponent implements OnInit {
         next: (response) => {
           console.log('response', response);
           this.user = response;
-          this.openDialog({ headline: "Erfolg", info: "User " + response.username + " registriert! Melde dich jetzt an!" });
+          this.openDialog({ headline: "Erfolg", info: "User " + response.username + "ist erfolgreich registriert! Melde dich jetzt an!" });
           this.auth.login(this.user);
         },
        // error: (err) => console.log(err),

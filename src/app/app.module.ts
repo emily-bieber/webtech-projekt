@@ -27,6 +27,7 @@ import { EditRetoureComponent } from './components/edit-retoure/edit-retoure.com
 import { DeleteRetoureComponent } from './components/delete-retoure/delete-retoure.component';
 import { NavComponent } from './components/nav/nav.component';
 import { RegistrationExistComponent } from './components/registration/registration-exist/registration-exist.component';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,9 @@ import { RegistrationExistComponent } from './components/registration/registrati
     HttpClientModule,
     MatIconModule
   ],
-  providers: [],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
