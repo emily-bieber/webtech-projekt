@@ -22,7 +22,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatNativeDateModule } from '@angular/material/core';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { HttpClientModule } from '@angular/common/http';
-import { RegistrationSuccessComponent } from './components/registration-success/registration-success.component';
 import { EditRetoureComponent } from './components/edit-retoure/edit-retoure.component';
 import { DeleteRetoureComponent } from './components/delete-retoure/delete-retoure.component';
 import { NavComponent } from './components/nav/nav.component';
@@ -38,7 +37,6 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     DashboardComponent,
     RetoureFormComponent,
     RegistrationComponent,
-    RegistrationSuccessComponent,
     EditRetoureComponent,
     DeleteRetoureComponent,
     NavComponent,

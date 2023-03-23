@@ -7,52 +7,52 @@
                 <div class="login-form">
                     <form class="flex flex-col gap-4 mb-5" [formGroup]="registerForm">
                         <div>
-                            <input type="text" placeholder="Username" class="input input-bordered w-full" formControlName="username" />
+                            <input type="text" placeholder="Benutzername" class="input input-bordered w-full" formControlName="username" />
                             <label *ngIf="registerForm.controls['username'].touched && registerForm.controls['username'].hasError('required')" class="text-red-500 text-left">
-                               Please choose a username
+                               Bitte wähle einen Benutzernamen
                             </label>
                         </div>
                         <div>
                             <input type="text" placeholder="Email" class="input input-bordered w-full" formControlName="email" />
                             <label *ngIf="registerForm.controls['email'].touched && registerForm.controls['email'].hasError('required')" class="text-red-500 text-left">
-                                Please type in your email
+                                Bitte gebe deine Email-Adresse ein
                              </label>
-                             <label *ngIf="registerForm.controls['email'].touched && registerForm.controls['email'].hasError('email')" class="text-red-500 text-left">
-                                Please type in valid email
+                             <label *ngIf="registerForm.controls['email'].touched && registerForm.controls['email'].hasError('pattern')" class="text-red-500 text-left">
+                                Bitte gebe eine gültige Email-Adresse ein
                              </label>
                         </div>
                         <div>
                             <div class="input-group">
-                                <input [type]="hide ? 'password' : 'text'" placeholder="Password" class="input input-bordered w-full" formControlName="password" />
+                                <input [type]="hide ? 'password' : 'text'" placeholder="Passwort" class="input input-bordered w-full" formControlName="password" />
                                 <button class="btn btn-primary btn-square" (click)="hide = !hide">
                                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                                 </button>
                             </div>
                             <label *ngIf="registerForm.controls['password'].touched && registerForm.controls['password'].hasError('required')" class="text-red-500 text-left">
-                                Please type in a password
+                                Bitte wähle ein Passwort
                              </label>
                              <label *ngIf="registerForm.controls['password'].touched && registerForm.controls['password'].invalid" class="text-red-500 text-left">
-                                Your password must be at least 8 characters long
+                                Das Passwort muss 8 Zeichen lang sein
                              </label>
                         </div>
                         <div>
                             <div class="input-group">
-                                <input [type]="hide2 ? 'password' : 'text'" placeholder="repeat password" class="input input-bordered w-full" formControlName="password2" />
+                                <input [type]="hide2 ? 'password' : 'text'" placeholder="Passwort wiederholen" class="input input-bordered w-full" formControlName="password2" />
                                 <button class="btn btn-primary btn-square" (click)="hide2 = !hide2">
                                     <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
                                 </button>
                             </div>
                             <label *ngIf="registerForm.controls['password2'].touched && registerForm.controls['password2'].hasError('required')" class="text-red-500 text-left">
-                                Please repeat your password
+                                Bitte wiederhole dein Passwort
                              </label>
                              <label *ngIf="registerForm.controls['password2'].touched && registerForm.controls['password2'].dirty && (registerForm.controls['password2'].value != registerForm.controls['password'].value)" class="text-red-500 text-left">
-                                passwords dont match
+                                Die Passwörter stimmen überein
                              </label>
                         </div>
                     </form>
                 </div>
-            <div class="actions flex gap-4">
-                <button class="btn btn-primary px-8 mt-5" [disabled]="registerForm.invalid || (registerForm.controls['password2'].value != registerForm.controls['password'].value)" (click)="onSubmit()">Sign Up</button>
+            <div class="actions flex gap-4 justify-center">
+                <button class="btn btn-primary px-8 mt-5" [disabled]="registerForm.invalid || (registerForm.controls['password2'].value != registerForm.controls['password'].value)" (click)="onSubmit()">registrieren</button>
                 <button mat-dialog-close class="btn btn-outline btn-primary px-8 mt-5" (click)="redirectToLandingPage()">Zurück</button>
             </div>
         </div>

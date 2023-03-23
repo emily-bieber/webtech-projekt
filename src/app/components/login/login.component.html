@@ -6,22 +6,18 @@
                 </div>
                 <div class="login-form">
                     <form class="flex flex-col gap-4 mb-5" [formGroup]="loginForm">
-                        <input type="text" placeholder="Username" class="input input-bordered w-full" formControlName="username" />
-                        <!-- <mat-error *ngIf="username.touched && username.invalid" class="error">Please type in your username</mat-error> -->
+                        <input type="text" placeholder="Benutzername" class="input input-bordered w-full" formControlName="username" />
                         <div class="input-group">
-                            <input [type]="hide ? 'password' : 'text'" placeholder="Password" class="input input-bordered w-full" formControlName="password" />
+                            <input [type]="hide ? 'password' : 'text'" placeholder="Passwort" class="input input-bordered w-full" formControlName="password" />
                             <button class="btn btn-square btn-primary" (click)="hide = !hide">
                                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                             </button>
-                            <!-- <mat-error *ngIf="password.touched && password.invalid" class="error">{{ getErrorMessage() }}</mat-error> -->
                         </div>
                     </form>
                 </div>
-            <div class="actions flex gap-4">
+            <div class="actions flex gap-4 justify-center">
                 <button class="btn btn-primary px-8 mt-5" [disabled]="loginForm.invalid" (click)="onSubmit()">Login</button>
                 <button mat-dialog-close class="btn btn-outline btn-primary px-8 mt-5 " (click)="redirectToLandingPage()">Zurück</button>
-
-                  
             </div>
         </div>
         </div>

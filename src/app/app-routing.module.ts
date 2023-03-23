@@ -4,7 +4,6 @@ import { LoginComponent } from './components/login/login.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RegistrationComponent } from './components/registration/registration.component';
-import { RegistrationSuccessComponent } from './components/registration-success/registration-success.component';
 import { AuthguardGuard } from './guards/authguard.guard';
 import { RetoureFormComponent } from './components/retoure-form/retoure-form.component';
 import { NavComponent } from './components/nav/nav.component';
@@ -26,10 +25,6 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegistrationComponent
-  },
-  {
-    path: 'register/successful',
-    component: RegistrationSuccessComponent
   },
   {
     path:'login',
