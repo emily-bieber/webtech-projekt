@@ -5,6 +5,7 @@ import { AuthService } from 'app/shared/services/auth.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { RegistrationExistComponent } from './registration-exist/registration-exist.component';
+import { RegistrationFailComponent } from './registration-fail/registration-fail.component';
 
 export interface DialogData {
   headline: string;
@@ -46,12 +47,12 @@ export class RegistrationComponent implements OnInit {
         next: (response) => {
           console.log('response', response);
           this.user = response;
-          this.openDialog({ headline: "Registrierung erfolgreich", info: "Die Registrierung war erfolgreich! Du kannst dich jetzt mit deinem Benutzernamen einloggen." });
+          this.openDialog({ headline: "Registrierung erfolgreich", info: "Die Registrierung war erfolgreich! Du bist jetzt mit deinem Benutzernamen eingeloggt." });
           this.auth.login(this.user);
         },
           error: (err) => {
             console.log('error', err.error.error)
-            this.openDialog({ headline: "Ein Fehler ist aufgetreten", info: "Der eingegebene Benutzername und/oder E-Mail existiert bereits!" });
+            this.openErrorDialog({ headline: "Ein Fehler ist aufgetreten", info: "Der eingegebene Benutzername und/oder E-Mail existiert bereits!" });
           },
           complete: () => console.log('register completed')
     });
@@ -67,5 +68,13 @@ export class RegistrationComponent implements OnInit {
       data 
     });
 }
+
+openErrorDialog(data: DialogData) {
+  this.dialog.open(RegistrationFailComponent, {
+    width: '25%',
+    data 
+  });
+}
+
 }
 

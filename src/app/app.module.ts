@@ -27,6 +27,7 @@ import { DeleteRetoureComponent } from './components/delete-retoure/delete-retou
 import { NavComponent } from './components/nav/nav.component';
 import { RegistrationExistComponent } from './components/registration/registration-exist/registration-exist.component';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { RegistrationFailComponent } from './components/registration/registration-fail/registration-fail.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     EditRetoureComponent,
     DeleteRetoureComponent,
     NavComponent,
-    RegistrationExistComponent
+    RegistrationExistComponent,
+    RegistrationFailComponent
   ],
   imports: [
     BrowserModule,
