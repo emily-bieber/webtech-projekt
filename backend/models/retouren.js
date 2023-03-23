@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const schema = new mongoose.Schema({
     name: String,
     orderNo: String,
-    ReturnNo: String,
+    returnNo: String,
     paymentDueDate: Date,
     returnDueDate: Date,
     notes: String,
