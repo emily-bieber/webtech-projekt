@@ -1,4 +1,6 @@
 # Semesterprojekt
+![image](https://user-images.githubusercontent.com/82116504/227235602-5c6c5b02-c733-47ac-b885-da5dfe884fe4.png)
+![image](https://user-images.githubusercontent.com/82116504/227235691-09d46fa9-2f62-4692-90d5-cb2d356f85ef.png)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
 
