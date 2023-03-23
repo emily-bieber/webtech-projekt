@@ -46,16 +46,12 @@ export class RegistrationComponent implements OnInit {
         next: (response) => {
           console.log('response', response);
           this.user = response;
-          this.openDialog({ headline: "Erfolg", info: "User " + response.username + "ist erfolgreich registriert! Melde dich jetzt an!" });
+          this.openDialog({ headline: "Registrierung erfolgreich", info: "Die Registrierung war erfolgreich! Du kannst dich jetzt mit deinem Benutzernamen einloggen." });
           this.auth.login(this.user);
         },
-       // error: (err) => console.log(err),
-       // complete: () => {
-        //  console.log('register completed')
-        //this.router.navigate(['/register/successful'])}
           error: (err) => {
             console.log('error', err.error.error)
-            this.openDialog({ headline: "Fehler", info: "username und/oder E-Mail existiert bereits" });
+            this.openDialog({ headline: "Ein Fehler ist aufgetreten", info: "Der eingegebene Benutzername und/oder E-Mail existiert bereits!" });
           },
           complete: () => console.log('register completed')
     });
@@ -66,7 +62,10 @@ export class RegistrationComponent implements OnInit {
   }
 
   openDialog(data: DialogData) {
-    this.dialog.open(RegistrationExistComponent, { data });
+    this.dialog.open(RegistrationExistComponent, {
+      width: '25%',
+      data 
+    });
 }
 }
 

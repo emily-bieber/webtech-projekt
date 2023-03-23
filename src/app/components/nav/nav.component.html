@@ -1,24 +1,26 @@
 <div class="navbar bg-zinc-100">
-    <div class="navbar-start">
-      <div class="dropdown">
-        <label tabindex="0" class="btn btn-ghost btn-circle">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
-        </label>
-        <ul tabindex="0" class="menu menu-compact dropdown-content p-4 shadow bg-base-100 rounded-box w-52">
-          <a class="center text-lg mb-3"><button routerLink="/dashboard">Dashboard</button></a>
-          <a class="center text-lg mb-3"><button routerLink="/about">Über uns</button></a>
-          <a *ngIf="isLoggedIn" class="center text-lg">
-            <button class="flex content-center gap-2" routerLink="/" (click)="callLogout()">
+  <div class="dropdown">
+    <label tabindex="0" class="btn btn-ghost btn-circle">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+    </label>
+    <ul tabindex="0" class="menu menu-compact dropdown-content p-4 shadow bg-base-100 rounded-box w-52">
+      <li><a class="center text-lg"><button routerLink="/dashboard">Dashboard</button></a></li>
+      <li><a class="center text-lg"><button routerLink="/about">Über uns</button></a></li>
+      <li *ngIf="isLoggedIn">
+        <a class="center text-lg">
+          <button class="flex content-center gap-2" routerLink="/" (click)="callLogout()">
               <mat-icon>logout</mat-icon>
               Log out
-            </button>
-          </a>
-        </ul>
-      </div>
-    </div>
-
-    <div class="justify-center">
-       <!-- <img src="../../../assets/images/nav.png">    -->
-       <a class="normal-case text-xl text-2xl" routerLink="/">RetourEase</a>
-    </div>  
+          </button>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="justify-self-center">
+    <a routerLink="/">
+      <button class="btn btn-ghost normal-case text-xl text-2xl">
+        RetourEase
+      </button>
+    </a>
+  </div>  
 </div>
