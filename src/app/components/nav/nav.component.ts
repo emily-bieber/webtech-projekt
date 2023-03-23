@@ -25,9 +25,7 @@ export class NavComponent implements OnInit {
       }
     })
   }
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
+  ngOnInit(): void {}
 
   checkIfLoggedIn(): boolean {
     this.isLoggedIn = this.auth.isLoggedin();
