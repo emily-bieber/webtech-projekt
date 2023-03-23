@@ -1,5 +1,5 @@
 <div class="background flex justify-center content-center">
-        <div class="card bg-base-100 shadow-xl w-1/4 h-fit my-8">
+        <div class="card bg-base-100 shadow-xl w-96 h-fit my-8">
             <div class="card-body flex justify-center">
                 <div class="my-8">
                     <p class="text-6xl text-center">SIGN UP</p>
@@ -31,9 +31,9 @@
                             <label *ngIf="registerForm.controls['password'].touched && registerForm.controls['password'].hasError('required')" class="text-red-500 text-left">
                                 Please type in a password
                              </label>
-                             <!-- <label *ngIf="registerForm.controls['email'].touched && registerForm.controls['email'].invalid" class="text-red-500 text-left">
+                             <label *ngIf="registerForm.controls['password'].touched && registerForm.controls['password'].invalid" class="text-red-500 text-left">
                                 Your password must be at least 8 characters long
-                             </label> -->
+                             </label>
                         </div>
                         <div>
                             <div class="input-group">

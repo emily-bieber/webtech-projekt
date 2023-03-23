@@ -61,7 +61,7 @@ export class RegistrationComponent implements OnInit {
     });
   }
   redirectToLandingPage() {
-    this.router.navigate(['']);
+    this.router.navigate(['/dashboard']);
   }
 
   openDialog(data: DialogData) {
