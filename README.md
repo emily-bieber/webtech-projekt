@@ -1,7 +1,7 @@
 # Semesterprojekt
-RetourEase dient zur Verwaltung jeglicher Retouren die man hat. RetourEase hilft dabei alles auf einem Blick zu behalten, egal ob es Zahlungen, Fristen oder Notizen sind. 
+RetourEase dient zur Verwaltung jeglicher Retouren die man hat. RetourEase hilft dabei alles auf einem Blick zu behalten, egal ob es Zahlungen, Fristen oder Anmerkungen sind. 
 
-Auf der Startseite könnt ihr einen Überblick bekommen, was die Idee der Webseite ist und könnt euch registieren oder direkt einloggen, falls man bereits einen Account erstellt hat.
+Auf der Startseite erhaltet man einen Überblick, was die Idee der Webseite ist und könnt euch registieren oder direkt einloggen, falls man bereits einen Account erstellt hat.
 
 ![image](https://user-images.githubusercontent.com/82116504/227354149-15fa5f86-f6ab-4c10-a725-5a0cc6c646d2.png)
 
@@ -14,7 +14,7 @@ Nach dem man sich erfolgreich registriert oder eingeloggt hat, erscheint eine pe
 
 Dashboard: ![image](https://user-images.githubusercontent.com/82116504/227356156-e84c7d88-4b3e-43cd-8621-7606cbb20ee5.png)
 
-Nachdem man auf den "Neue Retoure anlegen" Button geklickt hat erscheint ein Formular. Die wichtigen Informationen sind als Pflichtfelder makiert und müssen erst befüllt werden, damit der Speichern Button Enabled wird. Ist die Retoure angelegt worden, so können diese in die unterschiedlichen Stati rübergezogen werden.
+Nachdem man auf den "Neue Retoure anlegen" Button geklickt hat erscheint ein Formular. Die wichtigen Informationen sind als Pflichtfelder markiert und müssen erst befüllt werden, damit der Speichern Button Enabled wird. Ist die Retoure angelegt worden, so können diese in die unterschiedlichen Stati rübergezogen werden.
 
 Formular: ![image](https://user-images.githubusercontent.com/82116504/227356302-16dadfa6-4301-414d-ab09-cbdacef3cf5b.png)
 
