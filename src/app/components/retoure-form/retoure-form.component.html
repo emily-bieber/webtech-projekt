@@ -27,7 +27,7 @@
       <mat-form-field appearance="fill">
         <mat-label>Zahlungsfrist</mat-label>
         <input matInput formControlName="paymentDueDate" [matDatepicker]="paymentPicker">
-        <mat-hint>DD/MM/YYYY</mat-hint>
+        <mat-hint>DD/MM/YYYY</mat-hint>                                                           <!--DE date-->
         <mat-datepicker-toggle matIconSuffix [for]="paymentPicker"></mat-datepicker-toggle>
         <mat-datepicker #paymentPicker></mat-datepicker>
       </mat-form-field>
